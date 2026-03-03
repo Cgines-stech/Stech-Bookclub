@@ -58,7 +58,7 @@ const above = TOWN_SIZE - below;
 renderPeopleIcons(above, below);
 
 const story = `
-  Imagine a town  that represents Utah as a population of <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
+  Imagine a town that represents Utah as a population of <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
   Utah’s estimated cost of living for a single adult is about <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong>.
   In this town, about <strong>${above}</strong> people are in education groups where the typical median wage is
   <strong>enough to meet or exceed</strong> that benchmark — while about <strong>${below}</strong> people fall
@@ -148,26 +148,29 @@ function renderWageVsCOL(rows) {
 
   colNote.innerHTML = `
     <span class="pill">Utah cost of living: <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong></span>
-    <span class="pill">Red = below COL, Green = above COL</span>
+    <span class="pill">Red = shortfall to reach COL • Green = surplus above COL</span>
   `;
 
-  // Scale relative to the maximum wage so the marker is consistent across rows
+  // Scale to max wage so every row uses the same ruler
   const maxWage = Math.max(...rows.map(d => d.wage));
   const colPct = (UTAH_COST_OF_LIVING / maxWage) * 100;
 
-  // Sort by wage descending
   const sorted = [...rows].sort((a, b) => b.wage - a.wage);
 
   sorted.forEach(d => {
     const wagePct = (d.wage / maxWage) * 100;
-    const isAbove = d.wage >= UTAH_COST_OF_LIVING;
     const diff = d.wage - UTAH_COST_OF_LIVING;
+    const isAbove = diff >= 0;
 
-    // Below: show a red bar from 0 up to wagePct (which ends left of the marker)
-    // Above: show a green bar from marker to wagePct
-    const belowWidth = isAbove ? 0 : wagePct;
-    const aboveLeft = colPct;
-    const aboveWidth = isAbove ? Math.max(0, wagePct - colPct) : 0;
+    // For below COL:
+    // show RED from wagePct to colPct (the missing piece)
+    const shortfallLeft = wagePct;
+    const shortfallWidth = Math.max(0, colPct - wagePct);
+
+    // For above COL:
+    // show GREEN from colPct to wagePct (the extra piece)
+    const surplusLeft = colPct;
+    const surplusWidth = Math.max(0, wagePct - colPct);
 
     const row = document.createElement("div");
     row.className = "bar-row";
@@ -175,8 +178,18 @@ function renderWageVsCOL(rows) {
       <div class="label">${d.edu}</div>
       <div class="track col">
         <div class="col-marker" style="left:${Math.min(colPct,100)}%"></div>
-        ${belowWidth > 0 ? `<div class="col-fill below" style="width:${belowWidth}%"></div>` : ""}
-        ${aboveWidth > 0 ? `<div class="col-fill above" style="left:${aboveLeft}%; width:${aboveWidth}%"></div>` : ""}
+
+        ${
+          !isAbove && shortfallWidth > 0
+            ? `<div class="col-shortfall" style="left:${shortfallLeft}%; width:${shortfallWidth}%;"></div>`
+            : ""
+        }
+
+        ${
+          isAbove && surplusWidth > 0
+            ? `<div class="col-surplus" style="left:${surplusLeft}%; width:${surplusWidth}%;"></div>`
+            : ""
+        }
       </div>
       <div class="value ${isAbove ? "good" : "bad"}">
         ${fmtMoney0(d.wage)} (${diff >= 0 ? "+" : "−"}${fmtMoney0(Math.abs(diff))})

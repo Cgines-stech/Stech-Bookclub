@@ -435,3 +435,39 @@ tfoot td{
 
 .value.good{ color: rgba(124,246,194,.95); }
 .value.bad{ color: rgba(255,120,120,.95); }
+
+/* --- Wage vs COL (B) - shortfall/surplus emphasis --- */
+.track.col{
+  position: relative;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
+  overflow: hidden;
+}
+
+.col-marker{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width: 2px;
+  left: 0;
+  background: rgba(255,255,255,.85);
+  opacity: .9;
+}
+
+/* shortfall segment (wage -> COL) */
+.col-shortfall{
+  position:absolute;
+  top:0;
+  bottom:0;
+  background: rgba(255,120,120,.75);
+}
+
+/* surplus segment (COL -> wage) */
+.col-surplus{
+  position:absolute;
+  top:0;
+  bottom:0;
+  background: rgba(124,246,194,.75);
+}
