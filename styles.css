@@ -374,3 +374,17 @@ tfoot td{
 }
 
 .footer{ padding-top: 10px; }
+
+.story-image{
+  margin-top: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+
+.story-image img{
+  display:block;
+  width:100%;
+  height:auto;
+}
