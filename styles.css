@@ -322,31 +322,32 @@ tfoot td{
 .dot.no{ background: rgba(255,120,120,.85); }
 
 .people-grid{
-  display:grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  display:flex;
+  flex-wrap: nowrap;
+  gap: 6px;
   padding: 12px;
   border-radius: 14px;
   border: 1px solid var(--line);
   background: rgba(255,255,255,.02);
   margin-bottom: 12px;
+  overflow-x: auto; /* allows scroll if screen is very small */
 }
 
 .person{
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 34px;
+  height: 34px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius: 14px;
+  border-radius: 10px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(0,0,0,.10);
+  flex-shrink: 0; /* keeps them same size */
 }
 
 .person svg{
   width: 70%;
   height: 70%;
-  opacity: .95;
 }
 
 .person.ok{
