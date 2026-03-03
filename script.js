@@ -58,7 +58,7 @@ const above = TOWN_SIZE - below;
 renderPeopleIcons(above, below);
 
 const story = `
-  Imagine a town that represents Utah as a population of <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
+  Imagine a new town was settled that represents Utah as a population. <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
   Utah’s estimated cost of living for a single adult is about <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong>.
   In this town, about <strong>${above}</strong> people are in education groups where the wage is
   <strong>enough to meet or exceed</strong> that benchmark — while about <strong>${below}</strong> people fall

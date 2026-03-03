@@ -8,24 +8,25 @@
 </head>
 <body>
   <header class="wrap">
-    <h1>Education, Job Openings, and Typical Pay</h1>
+    <h1>Utah Education, Job Openings, and Pay</h1>
     <p class="sub">
-      A quick look at total openings and weighted average median wages by level of education.
+      A look at job openings and weighted average wages by level of education.
     </p>
   </header>
 
   <main class="wrap">
     <section class="card" id="storyCard">
       <div class="card-head">
-        <h2>Story: If this were a town of 250 people…</h2>
+        <h2>Story: If Utah were a town of 250 people…</h2>
         <p class="muted">
-          Your dataset has <span id="totalOpenings"></span> openings. We shrink it down to 250 people while keeping the same proportions.
+          The dataset has <span id="totalOpenings"></span> openings. We shrink it down to 250 people while keeping the same proportions.
         </p>
       </div>
       <div class="card-body">
   <p id="storyText"></p>
 
   <div class="legend">
+    </span> Each icon below represents 10 people in the town</span>
     <span class="legend-item"><span class="dot ok"></span> Enough (≥ cost of living)</span>
     <span class="legend-item"><span class="dot no"></span> Not enough (&lt; cost of living)</span>
     <span class="legend-item muted" id="iconSummary"></span>
@@ -105,6 +106,9 @@
 
     <footer class="wrap footer">
       <p class="muted">
+        Data was pulled from: https://public.tableau.com/app/profile/utah.lmi/viz/LongTermOccupationalProjections_2/QuickFacts<br>
+        Using Median Annual Wage based on Education<br>
+        ---------------------------------------------------------------------<br>
         What stories can we tell from this data set?<br>
         How could we improve the story that was provided?<br>
         Do you feel that the data is misleading because it only compares Job Openings, Average Wages, and Cost of Living for Utah?<br>
