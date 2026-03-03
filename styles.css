@@ -254,7 +254,9 @@ tfoot td{
   height: 100%;
 }
 .value.good{ color: var(--good); }
-.value.bad{ color: var(--warn); }
+.value.bad{ 
+  color: rgba(255,120,120,.95);
+}
 
 /* Story chips: affordability highlighting */
 .chip{
@@ -273,8 +275,8 @@ tfoot td{
 
 /* Below cost of living */
 .chip.below{
-  border-color: rgba(255,210,122,.75);
-  background: rgba(255,210,122,.10);
+  border-color: rgba(255,120,120,.75);
+  background: rgba(255,120,120,.12);
 }
 
 /* Optional: little badge inside chip */
@@ -292,7 +294,8 @@ tfoot td{
   border-color: rgba(124,246,194,.85);
 }
 .badge.no{
-  border-color: rgba(255,210,122,.75);
+  border-color: rgba(255,120,120,.75);
+  background: rgba(255,120,120,.15);
 }
 
 /* Icon grid in story */
