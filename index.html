@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education, Openings, and Wages</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="wrap">
+    <h1>Education, Job Openings, and Typical Pay</h1>
+    <p class="sub">
+      A quick look at total openings and weighted average median wages by level of education.
+    </p>
+  </header>
+
+  <main class="wrap">
+    <section class="card" id="storyCard">
+      <div class="card-head">
+        <h2>Story: If this were a town of 250 people…</h2>
+        <p class="muted">
+          Your dataset has <span id="totalOpenings"></span> openings. We shrink it down to 250 people while keeping the same proportions.
+        </p>
+      </div>
+      <div class="card-body">
+        <p id="storyText"></p>
+        <div id="storyChips" class="chips" aria-label="Town of 250 breakdown"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head row">
+        <div>
+          <h2>Chart</h2>
+          <p class="muted">Switch between total openings and weighted average median wage.</p>
+        </div>
+        <div class="controls">
+          <label class="seg">
+            <input type="radio" name="metric" value="openings" checked>
+            <span>Total Openings</span>
+          </label>
+          <label class="seg">
+            <input type="radio" name="metric" value="wage">
+            <span>Median Wage</span>
+          </label>
+          <button id="sortBtn" class="btn" type="button" title="Toggle sort">
+            Sort: Openings (desc)
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div id="chart" class="chart" role="img" aria-label="Bar chart"></div>
+        <p class="note" id="chartNote"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Data Table</h2>
+        <p class="muted">Numbers are shown as provided (openings) and formatted currency (wages).</p>
+      </div>
+      <div class="card-body">
+        <div class="table-wrap">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>Level of Education</th>
+                <th class="num">Total Number of Openings</th>
+                <th class="num">Weighted Average Median Wage</th>
+                <th class="num">Share of Openings</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td class="num" id="totalOpeningsFoot"></td>
+                <td class="num muted">—</td>
+                <td class="num" id="totalShareFoot">100%</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap footer">
+      <p class="muted">
+        Built with vanilla HTML/CSS/JS for GitHub Pages.
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
