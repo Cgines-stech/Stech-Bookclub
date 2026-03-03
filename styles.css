@@ -385,6 +385,8 @@ tfoot td{
 
 .story-image img{
   display:block;
-  width:100%;
+  width:auto;
   height:auto;
+  max-height: 300px;   /* adjust if needed */
+  margin: 0 auto;      /* center the image */
 }
