@@ -361,3 +361,77 @@ tfoot td{
   border-color: rgba(255,120,120,.45);
   background: rgba(255,120,120,.08);
 }
+
+/* --- Wage vs COL (B) --- */
+.track.col{
+  position: relative;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
+  overflow: hidden;
+}
+
+.col-marker{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width: 2px;
+  background: rgba(255,255,255,.85);
+  opacity: .9;
+}
+
+.col-fill{
+  position:absolute;
+  top:0;
+  bottom:0;
+  border-radius: 999px;
+}
+
+.col-fill.below{
+  left: 0;
+  background: rgba(255,120,120,.70);
+}
+
+.col-fill.above{
+  background: rgba(124,246,194,.70);
+}
+
+/* --- Diverging gap chart (C) --- */
+.gap-track{
+  position: relative;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
+  overflow: hidden;
+}
+
+.zero-line{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width: 2px;
+  left: 50%;
+  background: rgba(255,255,255,.70);
+  opacity: .9;
+}
+
+.gap-bar{
+  position:absolute;
+  top:0;
+  bottom:0;
+}
+
+.gap-bar.pos{
+  left: 50%;
+  background: rgba(124,246,194,.75);
+}
+
+.gap-bar.neg{
+  right: 50%;
+  background: rgba(255,120,120,.75);
+}
+
+.value.good{ color: rgba(124,246,194,.95); }
+.value.bad{ color: rgba(255,120,120,.95); }

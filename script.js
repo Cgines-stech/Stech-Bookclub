@@ -147,32 +147,38 @@ function renderWageVsCOL(rows) {
   wrap.innerHTML = "";
 
   colNote.innerHTML = `
-    <span class="pill">Cost of living: <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong></span>
-    <span class="pill">Above line = “covers estimate”</span>
+    <span class="pill">Utah cost of living: <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong></span>
+    <span class="pill">Red = below COL, Green = above COL</span>
   `;
 
-  // Scale bars using max wage for a stable visual
+  // Scale relative to the maximum wage so the marker is consistent across rows
   const maxWage = Math.max(...rows.map(d => d.wage));
   const colPct = (UTAH_COST_OF_LIVING / maxWage) * 100;
 
-  // Sort by wage (desc) for readability
-  const sorted = [...rows].sort((a,b)=>b.wage - a.wage);
+  // Sort by wage descending
+  const sorted = [...rows].sort((a, b) => b.wage - a.wage);
 
   sorted.forEach(d => {
     const wagePct = (d.wage / maxWage) * 100;
-    const status = d.wage >= UTAH_COST_OF_LIVING ? "good" : "bad";
+    const isAbove = d.wage >= UTAH_COST_OF_LIVING;
     const diff = d.wage - UTAH_COST_OF_LIVING;
+
+    // Below: show a red bar from 0 up to wagePct (which ends left of the marker)
+    // Above: show a green bar from marker to wagePct
+    const belowWidth = isAbove ? 0 : wagePct;
+    const aboveLeft = colPct;
+    const aboveWidth = isAbove ? Math.max(0, wagePct - colPct) : 0;
 
     const row = document.createElement("div");
     row.className = "bar-row";
     row.innerHTML = `
       <div class="label">${d.edu}</div>
-      <div class="track split">
-        <div class="left" style="width:${Math.min(colPct,100)}%"></div>
-        <div class="marker" title="Cost of living marker"></div>
-        <div class="right" style="width:${Math.max(0, wagePct - colPct)}%"></div>
+      <div class="track col">
+        <div class="col-marker" style="left:${Math.min(colPct,100)}%"></div>
+        ${belowWidth > 0 ? `<div class="col-fill below" style="width:${belowWidth}%"></div>` : ""}
+        ${aboveWidth > 0 ? `<div class="col-fill above" style="left:${aboveLeft}%; width:${aboveWidth}%"></div>` : ""}
       </div>
-      <div class="value ${status}">
+      <div class="value ${isAbove ? "good" : "bad"}">
         ${fmtMoney0(d.wage)} (${diff >= 0 ? "+" : "−"}${fmtMoney0(Math.abs(diff))})
       </div>
     `;
@@ -185,29 +191,31 @@ function renderGapChart(rows) {
   const wrap = document.getElementById("gapChart");
   wrap.innerHTML = "";
 
-  const withGap = rows.map(d => ({
-    ...d,
-    gap: d.wage - UTAH_COST_OF_LIVING
-  }));
-
+  const withGap = rows.map(d => ({ ...d, gap: d.wage - UTAH_COST_OF_LIVING }));
   const maxAbsGap = Math.max(...withGap.map(d => Math.abs(d.gap)));
 
-  // Sort by gap (desc): most above → most below
-  withGap.sort((a,b)=>b.gap - a.gap);
+  // Sort: most above → most below
+  withGap.sort((a, b) => b.gap - a.gap);
 
   withGap.forEach(d => {
-    const pct = (Math.abs(d.gap) / maxAbsGap) * 100;
-    const status = d.gap >= 0 ? "good" : "bad";
+    const isPos = d.gap >= 0;
+    const pct = (Math.abs(d.gap) / maxAbsGap) * 50; 
+    // 50 because each side is half the track (left or right)
 
     const row = document.createElement("div");
     row.className = "bar-row";
     row.innerHTML = `
       <div class="label">${d.edu}</div>
-      <div class="track">
-        <div class="fill" style="width:${pct}%"></div>
+      <div class="gap-track">
+        <div class="zero-line"></div>
+        ${
+          isPos
+            ? `<div class="gap-bar pos" style="width:${pct}%;"></div>`
+            : `<div class="gap-bar neg" style="width:${pct}%;"></div>`
+        }
       </div>
-      <div class="value ${status}">
-        ${d.gap >= 0 ? "+" : "−"}${fmtMoney0(Math.abs(d.gap))}
+      <div class="value ${isPos ? "good" : "bad"}">
+        ${isPos ? "+" : "−"}${fmtMoney0(Math.abs(d.gap))}
       </div>
     `;
     wrap.appendChild(row);
