@@ -52,30 +52,37 @@ function renderStory() {
   const highestPay = [...town].sort((a,b)=>b.wage-a.wage)[0];
 
   // Count how many "people" in the 250-town are in categories below cost of living
-  const below = town.filter(d => d.wage < UTAH_COST_OF_LIVING).reduce((s,d)=>s+d.people,0);
-  const above = TOWN_SIZE - below;
+const below = town.filter(d => d.wage < UTAH_COST_OF_LIVING).reduce((s,d)=>s+d.people,0);
+const above = TOWN_SIZE - below;
 
-  const story = `
-    Imagine a town of <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
-    The biggest group is <strong>${mostCommon.edu}</strong> with about <strong>${mostCommon.people} people</strong>.
-    Now add one more reference point: Utah’s estimated cost of living for a single adult is about
-    <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong>.
-    In this “town,” about <strong>${below}</strong> people are in education groups where the typical median wage is
-    <strong>below</strong> that benchmark, and <strong>${above}</strong> are <strong>above</strong>.
-    The highest typical pay is <strong>${highestPay.edu}</strong> at about <strong>${fmtMoney0(highestPay.wage)}</strong>.
-  `;
+const story = `
+  Imagine a town  that represents Utah as a population of <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
+  Utah’s estimated cost of living for a single adult is about <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong>.
+  In this town, about <strong>${above}</strong> people are in education groups where the typical median wage is
+  <strong>enough to meet or exceed</strong> that benchmark — while about <strong>${below}</strong> people fall
+  <strong>below</strong> it.
+  The chips below are highlighted: <span class="badge ok">Above COL</span> and <span class="badge no">Below COL</span>.
+`;
   document.getElementById("storyText").innerHTML = story;
 
   const chips = document.getElementById("storyChips");
   chips.innerHTML = "";
   town
-    .sort((a,b)=>b.people-a.people)
-    .forEach(d => {
-      const el = document.createElement("div");
-      el.className = "chip";
-      el.innerHTML = `${d.edu}: <strong>${d.people}</strong> / ${TOWN_SIZE}`;
-      chips.appendChild(el);
-    });
+  .sort((a,b)=>b.people-a.people)
+  .forEach(d => {
+    const isAbove = d.wage >= UTAH_COST_OF_LIVING;
+
+    const el = document.createElement("div");
+    el.className = `chip ${isAbove ? "above" : "below"}`;
+
+    el.innerHTML = `
+      ${d.edu}: <strong>${d.people}</strong> / ${TOWN_SIZE}
+      <span class="badge ${isAbove ? "ok" : "no"}">
+        ${isAbove ? "Above COL" : "Below COL"}
+      </span>
+    `;
+    chips.appendChild(el);
+  });
 }
 
 function renderTable(rows) {
