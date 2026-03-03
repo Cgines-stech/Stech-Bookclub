@@ -10,10 +10,12 @@ const data = [
   { edu: "Doctoral Degree", openings: 3160, wage: 159308.01 },
 ];
 
+// New constant from you:
+const UTAH_COST_OF_LIVING = 51027; // single adult estimate
 const TOWN_SIZE = 250;
 
 const fmtInt = (n) => n.toLocaleString("en-US");
-const fmtMoney = (n) =>
+const fmtMoney0 = (n) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 const fmtMoney2 = (n) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -22,12 +24,10 @@ const totalOpenings = data.reduce((sum, d) => sum + d.openings, 0);
 
 // Scale openings to a town of 250 people (rounded, and sums to 250)
 function scaledTownCounts(rows, townSize) {
-  // initial rounded allocation
   const raw = rows.map(d => ({ ...d, rawPeople: (townSize * d.openings) / totalOpenings }));
   const base = raw.map(d => ({ ...d, people: Math.floor(d.rawPeople) }));
   let allocated = base.reduce((s, d) => s + d.people, 0);
 
-  // distribute remaining by largest fractional parts
   const remainders = base
     .map(d => ({ edu: d.edu, frac: d.rawPeople - d.people }))
     .sort((a, b) => b.frac - a.frac);
@@ -48,20 +48,24 @@ function renderStory() {
   document.getElementById("totalOpenings").textContent = fmtInt(totalOpenings);
   const town = scaledTownCounts(data, TOWN_SIZE);
 
-  // Build a simple narrative: who is most common + what pays the most
   const mostCommon = [...town].sort((a,b)=>b.people-a.people)[0];
   const highestPay = [...town].sort((a,b)=>b.wage-a.wage)[0];
 
+  // Count how many "people" in the 250-town are in categories below cost of living
+  const below = town.filter(d => d.wage < UTAH_COST_OF_LIVING).reduce((s,d)=>s+d.people,0);
+  const above = TOWN_SIZE - below;
+
   const story = `
     Imagine a town of <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
-    In that town, the biggest group is <strong>${mostCommon.edu}</strong> with about
-    <strong>${mostCommon.people} people</strong>. The highest typical pay shows up at the top education level:
-    <strong>${highestPay.edu}</strong>, where the typical median wage is about <strong>${fmtMoney(highestPay.wage)}</strong>.
-    The chart below helps you see both the “how many” (openings) and the “how much” (wages).
+    The biggest group is <strong>${mostCommon.edu}</strong> with about <strong>${mostCommon.people} people</strong>.
+    Now add one more reference point: Utah’s estimated cost of living for a single adult is about
+    <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong>.
+    In this “town,” about <strong>${below}</strong> people are in education groups where the typical median wage is
+    <strong>below</strong> that benchmark, and <strong>${above}</strong> are <strong>above</strong>.
+    The highest typical pay is <strong>${highestPay.edu}</strong> at about <strong>${fmtMoney0(highestPay.wage)}</strong>.
   `;
   document.getElementById("storyText").innerHTML = story;
 
-  // Chips
   const chips = document.getElementById("storyChips");
   chips.innerHTML = "";
   town
@@ -79,9 +83,9 @@ function renderTable(rows) {
   tbody.innerHTML = "";
 
   rows.forEach(d => {
-    const tr = document.createElement("tr");
     const share = (d.openings / totalOpenings) * 100;
 
+    const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${d.edu}</td>
       <td class="num">${fmtInt(d.openings)}</td>
@@ -116,7 +120,7 @@ function renderChart(rows, metric, sortMode) {
     row.innerHTML = `
       <div class="label">${d.edu}</div>
       <div class="track"><div class="fill" style="width:${pct}%"></div></div>
-      <div class="value">${metric === "openings" ? fmtInt(val) : fmtMoney(val)}</div>
+      <div class="value">${metric === "openings" ? fmtInt(val) : fmtMoney0(val)}</div>
     `;
     chart.appendChild(row);
   });
@@ -127,13 +131,86 @@ function renderChart(rows, metric, sortMode) {
       : "Bars show weighted average median wage (highest wage category = 100%).";
 }
 
+// B) Wage vs Cost of Living visualization
+function renderWageVsCOL(rows) {
+  const wrap = document.getElementById("wageColChart");
+  const colNote = document.getElementById("colNote");
+  wrap.innerHTML = "";
+
+  colNote.innerHTML = `
+    <span class="pill">Cost of living: <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong></span>
+    <span class="pill">Above line = “covers estimate”</span>
+  `;
+
+  // Scale bars using max wage for a stable visual
+  const maxWage = Math.max(...rows.map(d => d.wage));
+  const colPct = (UTAH_COST_OF_LIVING / maxWage) * 100;
+
+  // Sort by wage (desc) for readability
+  const sorted = [...rows].sort((a,b)=>b.wage - a.wage);
+
+  sorted.forEach(d => {
+    const wagePct = (d.wage / maxWage) * 100;
+    const status = d.wage >= UTAH_COST_OF_LIVING ? "good" : "bad";
+    const diff = d.wage - UTAH_COST_OF_LIVING;
+
+    const row = document.createElement("div");
+    row.className = "bar-row";
+    row.innerHTML = `
+      <div class="label">${d.edu}</div>
+      <div class="track split">
+        <div class="left" style="width:${Math.min(colPct,100)}%"></div>
+        <div class="marker" title="Cost of living marker"></div>
+        <div class="right" style="width:${Math.max(0, wagePct - colPct)}%"></div>
+      </div>
+      <div class="value ${status}">
+        ${fmtMoney0(d.wage)} (${diff >= 0 ? "+" : "−"}${fmtMoney0(Math.abs(diff))})
+      </div>
+    `;
+    wrap.appendChild(row);
+  });
+}
+
+// C) Affordability gap visualization
+function renderGapChart(rows) {
+  const wrap = document.getElementById("gapChart");
+  wrap.innerHTML = "";
+
+  const withGap = rows.map(d => ({
+    ...d,
+    gap: d.wage - UTAH_COST_OF_LIVING
+  }));
+
+  const maxAbsGap = Math.max(...withGap.map(d => Math.abs(d.gap)));
+
+  // Sort by gap (desc): most above → most below
+  withGap.sort((a,b)=>b.gap - a.gap);
+
+  withGap.forEach(d => {
+    const pct = (Math.abs(d.gap) / maxAbsGap) * 100;
+    const status = d.gap >= 0 ? "good" : "bad";
+
+    const row = document.createElement("div");
+    row.className = "bar-row";
+    row.innerHTML = `
+      <div class="label">${d.edu}</div>
+      <div class="track">
+        <div class="fill" style="width:${pct}%"></div>
+      </div>
+      <div class="value ${status}">
+        ${d.gap >= 0 ? "+" : "−"}${fmtMoney0(Math.abs(d.gap))}
+      </div>
+    `;
+    wrap.appendChild(row);
+  });
+}
+
 function init() {
   renderStory();
   renderTable(data);
 
-  // UI state
   let metric = "openings";
-  let sortMode = "openings"; // default
+  let sortMode = "openings";
 
   const sortBtn = document.getElementById("sortBtn");
 
@@ -142,6 +219,8 @@ function init() {
   }
 
   renderChart(data, metric, sortMode);
+  renderWageVsCOL(data);
+  renderGapChart(data);
   updateSortBtnText();
 
   document.querySelectorAll('input[name="metric"]').forEach(radio => {

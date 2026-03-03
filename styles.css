@@ -212,3 +212,46 @@ tfoot td{
 .footer{
   padding-top: 10px;
 }
+
+.sep{
+  border: none;
+  border-top: 1px solid rgba(255,255,255,.10);
+  margin: 18px 0;
+}
+.minihead{
+  margin: 6px 0 10px;
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: .2px;
+}
+.small{ font-size: 13px; }
+
+.pill{
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.track.split{
+  display:flex;
+  height: 16px;
+}
+.split .left{
+  height:100%;
+  background: rgba(255,255,255,.08);
+}
+.split .right{
+  height:100%;
+  background: rgba(124,246,194,.20);
+}
+.split .marker{
+  width: 2px;
+  background: rgba(255,210,122,.95);
+  height: 100%;
+}
+.value.good{ color: var(--good); }
+.value.bad{ color: var(--warn); }
