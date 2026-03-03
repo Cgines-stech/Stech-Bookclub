@@ -199,42 +199,6 @@ function renderWageVsCOL(rows) {
   });
 }
 
-// C) Affordability gap visualization
-function renderGapChart(rows) {
-  const wrap = document.getElementById("gapChart");
-  wrap.innerHTML = "";
-
-  const withGap = rows.map(d => ({ ...d, gap: d.wage - UTAH_COST_OF_LIVING }));
-  const maxAbsGap = Math.max(...withGap.map(d => Math.abs(d.gap)));
-
-  // Sort: most above → most below
-  withGap.sort((a, b) => b.gap - a.gap);
-
-  withGap.forEach(d => {
-    const isPos = d.gap >= 0;
-    const pct = (Math.abs(d.gap) / maxAbsGap) * 50; 
-    // 50 because each side is half the track (left or right)
-
-    const row = document.createElement("div");
-    row.className = "bar-row";
-    row.innerHTML = `
-      <div class="label">${d.edu}</div>
-      <div class="gap-track">
-        <div class="zero-line"></div>
-        ${
-          isPos
-            ? `<div class="gap-bar pos" style="width:${pct}%;"></div>`
-            : `<div class="gap-bar neg" style="width:${pct}%;"></div>`
-        }
-      </div>
-      <div class="value ${isPos ? "good" : "bad"}">
-        ${isPos ? "+" : "−"}${fmtMoney0(Math.abs(d.gap))}
-      </div>
-    `;
-    wrap.appendChild(row);
-  });
-}
-
 function init() {
   renderStory();
   renderTable(data);
@@ -250,7 +214,6 @@ function init() {
 
   renderChart(data, metric, sortMode);
   renderWageVsCOL(data);
-  renderGapChart(data);
   updateSortBtnText();
 
   document.querySelectorAll('input[name="metric"]').forEach(radio => {
