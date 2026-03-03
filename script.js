@@ -55,6 +55,8 @@ function renderStory() {
 const below = town.filter(d => d.wage < UTAH_COST_OF_LIVING).reduce((s,d)=>s+d.people,0);
 const above = TOWN_SIZE - below;
 
+renderPeopleIcons(above, below);
+
 const story = `
   Imagine a town  that represents Utah as a population of <strong>${TOWN_SIZE} people</strong> where each person represents a job opening.
   Utah’s estimated cost of living for a single adult is about <strong>${fmtMoney0(UTAH_COST_OF_LIVING)}</strong>.
@@ -241,6 +243,50 @@ function init() {
     sortMode = sortMode === "openings" ? "wage" : "openings";
     updateSortBtnText();
     renderChart(data, metric, sortMode);
+  });
+}
+
+function renderPeopleIcons(abovePeople, belowPeople) {
+  // 25 icons represent the 250-person town => each icon = 10 people
+  const totalIcons = 25;
+  const peoplePerIcon = 10;
+
+  // Convert people counts to icons (rounded to nearest icon)
+  let greenIcons = Math.round(abovePeople / peoplePerIcon);
+  greenIcons = Math.max(0, Math.min(totalIcons, greenIcons));
+  let redIcons = totalIcons - greenIcons;
+
+  // If you explicitly want 6 green / 19 red no matter what, force it:
+  // const greenIcons = 6; const redIcons = 19;
+
+  const grid = document.getElementById("peopleGrid");
+  const summary = document.getElementById("iconSummary");
+  if (!grid || !summary) return;
+
+  summary.textContent = `(${greenIcons} of 25 icons green = about ${greenIcons * 10} of ${TOWN_SIZE} people)`;
+
+  grid.innerHTML = "";
+
+  const personSVG = `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"></path>
+    </svg>
+  `;
+
+  // Build icons (greens first, then reds)
+  const icons = [
+    ...Array(greenIcons).fill("ok"),
+    ...Array(redIcons).fill("no"),
+  ];
+
+  icons.forEach((klass, idx) => {
+    const el = document.createElement("div");
+    el.className = `person ${klass}`;
+    el.title = klass === "ok"
+      ? "Enough (≥ cost of living)"
+      : "Not enough (< cost of living)";
+    el.innerHTML = personSVG;
+    grid.appendChild(el);
   });
 }
 
