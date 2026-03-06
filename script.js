@@ -1,4 +1,4 @@
-// Data (as provided)
+// script.js
 const data = [
   { edu: "No Formal Education", openings: 70990, wage: 34466.92 },
   { edu: "High School", openings: 94270, wage: 46941.56 },

@@ -1,0 +1,701 @@
+﻿Education Level,SOC Title,"ROUND(SUM([Annual Total Openings]),-1)","ROUND(SUM([Median Annual Wage]),-1)",Annual Total Openings,Openings * Wage
+No Formal Education,Waiters and Waitresses,4030,29860,4032,120335800
+No Formal Education,"Ushers, Lobby Attendants, and Ticket Takers",400,25570,404,10228000
+No Formal Education,"Underground Mining Machine Operators, All Other",60,65570,61,3934200
+No Formal Education,Tile and Stone Setters,320,48790,320,15612800
+No Formal Education,Telemarketers,130,32090,133,4171700
+No Formal Education,Tapers,80,54580,76,4366400
+No Formal Education,"Tank Car, Truck, and Ship Loaders",50,47540,48,2377000
+No Formal Education,"Tailors, Dressmakers, and Custom Sewers",60,40570,61,2434200
+No Formal Education,Slaughterers and Meat Packers,120,40470,124,4856400
+No Formal Education,Shuttle Drivers and Chauffeurs,390,38410,391,14979900
+No Formal Education,Sewing Machine Operators,200,37480,201,7496000
+No Formal Education,"Service Unit Operators, Oil and Gas",60,55570,57,3334200
+No Formal Education,"Roustabouts, Oil and Gas",60,47680,61,2860800
+No Formal Education,"Rotary Drill Operators, Oil and Gas",20,68660,22,1373200
+No Formal Education,Roofers,310,49800,311,15438000
+No Formal Education,Retail Salespersons,4780,34300,4783,163954000
+No Formal Education,Refuse and Recyclable Material Collectors,150,50720,153,7608000
+No Formal Education,"Pressers, Textile, Garment, and Related Materials",30,34450,34,1033500
+No Formal Education,"Postal Service Mail Sorters, Processors, and Processing Machine Operators",80,55410,79,4432800
+No Formal Education,Postal Service Mail Carriers,220,58390,223,12845800
+No Formal Education,Postal Service Clerks,70,59550,69,4168500
+No Formal Education,Plasterers and Stucco Masons,120,53170,121,6380400
+No Formal Education,Pipelayers,80,51180,80,4094400
+No Formal Education,Parts Salespersons,500,37220,502,18610000
+No Formal Education,Parking Attendants,130,34590,130,4496700
+No Formal Education,"Painting, Coating, and Decorating Workers",40,42020,44,1680800
+No Formal Education,"Painters, Construction and Maintenance",610,45900,608,27999000
+No Formal Education,"Packers and Packagers, Hand",1290,35430,1292,45704700
+No Formal Education,"Motor Vehicle Operators, All Other",120,46340,119,5560800
+No Formal Education,"Meat, Poultry, and Fish Cutters and Trimmers",120,42760,119,5131200
+No Formal Education,"Material Moving Workers, All Other",40,48200,42,1928000
+No Formal Education,Maids and Housekeeping Cleaners,1690,34660,1686,58575400
+No Formal Education,Machine Feeders and Offbearers,110,39440,113,4338400
+No Formal Education,"Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers",600,28400,601,17040000
+No Formal Education,Laundry and Dry-Cleaning Workers,210,33690,207,7074900
+No Formal Education,Landscaping and Groundskeeping Workers,2700,38940,2695,105138000
+No Formal Education,"Laborers and Freight, Stock, and Material Movers, Hand",4050,39570,4045,160258500
+No Formal Education,"Janitors and Cleaners, Except Maids and Housekeeping Cleaners",4560,30390,4560,138578400
+No Formal Education,"Insulation Workers, Floor, Ceiling, and Wall",60,48330,57,2899800
+No Formal Education,Industrial Truck and Tractor Operators,1010,47500,1009,47975000
+No Formal Education,"Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop",1440,28790,1439,41457600
+No Formal Education,"Helpers, Construction Trades, All Other",50,36490,48,1824500
+No Formal Education,"Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons",30,40620,26,1218600
+No Formal Education,Helpers--Carpenters,70,43090,65,3016300
+No Formal Education,"Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",100,48090,99,4809000
+No Formal Education,"Grounds Maintenance Workers, All Other",60,37370,64,2242200
+No Formal Education,"Grinding and Polishing Workers, Hand",10,35710,10,357100
+No Formal Education,"Food Servers, Nonrestaurant",450,28280,448,12726000
+No Formal Education,"Food Processing Workers, All Other",30,41280,27,1238400
+No Formal Education,Food Preparation Workers,1290,32090,1293,41396100
+No Formal Education,"Food Preparation and Serving Related Workers, All Other",50,32940,52,1647000
+No Formal Education,"Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders",90,40500,88,3645000
+No Formal Education,"Floor Layers, Except Carpet, Wood, and Hard Tiles",130,43930,133,5710900
+No Formal Education,Fence Erectors,20,57430,23,1148600
+No Formal Education,Fast Food and Counter Workers,15090,28670,15091,432630300
+No Formal Education,"Farmworkers, Farm, Ranch, and Aquacultural Animals",220,42120,217,9266400
+No Formal Education,"Farmworkers and Laborers, Crop, Nursery, and Greenhouse",270,33200,270,8964000
+No Formal Education,Drywall and Ceiling Tile Installers,280,50860,276,14240800
+No Formal Education,Dishwashers,870,30130,873,26213100
+No Formal Education,Dining Room and Cafeteria Attendants and Bartender Helpers,690,27760,686,19154400
+No Formal Education,Demonstrators and Product Promoters,130,37300,131,4849000
+No Formal Education,Crossing Guards and Flaggers,570,34480,569,19653600
+No Formal Education,Craft Artists,20,20030,20,400600
+No Formal Education,Counter and Rental Clerks,450,37300,447,16785000
+No Formal Education,"Cooks, Short Order",390,36680,390,14305200
+No Formal Education,"Cooks, Restaurant",3200,36510,3202,116832000
+No Formal Education,"Cooks, Institution and Cafeteria",900,37740,898,33966000
+No Formal Education,"Cooks, Fast Food",1220,29960,1223,36551200
+No Formal Education,"Cooks, All Other",20,39330,24,786600
+No Formal Education,Conveyor Operators and Tenders,20,40680,16,813600
+No Formal Education,Continuous Mining Machine Operators,140,67870,136,9501800
+No Formal Education,Construction Laborers,3660,46100,3656,168726000
+No Formal Education,Cleaners of Vehicles and Equipment,870,34170,874,29727900
+No Formal Education,Cement Masons and Concrete Finishers,480,55540,477,26659200
+No Formal Education,Cashiers,3990,30290,3991,120857100
+No Formal Education,Carpet Installers,10,43270,14,432700
+No Formal Education,Butchers and Meat Cutters,210,41680,208,8752800
+No Formal Education,"Building Cleaning Workers, All Other",50,39450,52,1972500
+No Formal Education,Bartenders,830,34120,833,28319600
+No Formal Education,Bakers,590,35490,586,20939100
+No Formal Education,Automotive and Watercraft Service Attendants,510,34350,508,17518500
+No Formal Education,Athletes and Sports Competitors,80,178920,76,14313600
+No Formal Education,"Artists and Related Workers, All Other",50,59950,49,2997500
+No Formal Education,Amusement and Recreation Attendants,1650,27170,1645,44830500
+No Formal Education,Agricultural Equipment Operators,50,42060,47,2103000
+,,,,,
+No Formal Education,SUM,70990,3632980,70973,2446806500
+No Formal Education,Weighted Average Wage,,,,34466.91788
+,,,,,
+High School,Word Processors and Typists,40,39520,35,1580800
+High School,"Woodworking Machine Setters, Operators, and Tenders, Except Sawing",100,37880,98,3788000
+High School,"Woodworkers, All Other",90,52420,86,4717800
+High School,"Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders",30,47320,28,1419600
+High School,"Welders, Cutters, Solderers, and Brazers",530,56050,533,29706500
+High School,"Weighers, Measurers, Checkers, and Samplers, Recordkeeping",100,46530,95,4653000
+High School,Water and Wastewater Treatment Plant and System Operators,180,59120,178,10641600
+High School,Veterinary Assistants and Laboratory Animal Caretakers,360,35730,361,12862800
+High School,Upholsterers,30,43150,30,1294500
+High School,"Umpires, Referees, and Other Sports Officials",230,29920,233,6881600
+High School,Tree Trimmers and Pruners,180,53900,181,9702000
+High School,Travel Agents,80,41040,83,3283200
+High School,"Transportation, Storage, and Distribution Managers",270,97980,269,26454600
+High School,"Transportation Workers, All Other",20,65290,19,1305800
+High School,Transportation Inspectors,40,62960,37,2518400
+High School,Tour and Travel Guides,510,38820,508,19798200
+High School,"Title Examiners, Abstractors, and Searchers",170,59310,167,10082700
+High School,Tire Repairers and Changers,310,36060,307,11178600
+High School,"Textile, Apparel, and Furnishings Workers, All Other",60,37680,60,2260800
+High School,Tellers,340,38000,337,12920000
+High School,Telecommunications Line Installers and Repairers,80,55980,83,4478400
+High School,Tax Preparers,360,58660,361,21117600
+High School,"Switchboard Operators, Including Answering Service",30,41290,30,1238700
+High School,Surveying and Mapping Technicians,120,48720,120,5846400
+High School,Structural Metal Fabricators and Fitters,180,50440,183,9079200
+High School,Structural Iron and Steel Workers,120,47840,120,5740800
+High School,Stonemasons,90,50630,89,4556700
+High School,Stockers and Order Fillers,5560,37800,5557,210168000
+High School,Stationary Engineers and Boiler Operators,10,69450,11,694500
+High School,Solar Photovoltaic Installers,70,47960,73,3357200
+High School,Social and Human Service Assistants,940,40500,940,38070000
+High School,Shoe and Leather Workers and Repairers,60,36500,61,2190000
+High School,"Shipping, Receiving, and Inventory Clerks",1860,38110,1861,70884600
+High School,Sheet Metal Workers,210,60490,214,12702900
+High School,Septic Tank Servicers and Sewer Pipe Cleaners,30,48720,29,1461600
+High School,"Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders",100,45620,95,4562000
+High School,Semiconductor Processing Technicians,60,39090,57,2345400
+High School,Self-Enrichment Teachers,1330,38010,1328,50553300
+High School,Security Guards,980,42440,981,41591200
+High School,Security and Fire Alarm Systems Installers,160,58860,162,9417600
+High School,"Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",2320,45150,2324,104748000
+High School,School Bus Monitors,130,37530,132,4878900
+High School,"Sawing Machine Setters, Operators, and Tenders, Wood",70,38170,74,2671900
+High School,"Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products",1610,61080,1613,98338800
+High School,"Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel",1820,59970,1816,109145400
+High School,"Sales and Related Workers, All Other",750,51750,752,38812500
+High School,"Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",20,46050,16,921000
+High School,Riggers,30,91070,25,2732100
+High School,Residential Advisors,440,39520,442,17388800
+High School,Reservation and Transportation Ticket Agents and Travel Clerks,310,37540,310,11637400
+High School,Reinforcing Iron and Rebar Workers,70,49990,67,3499300
+High School,Recreational Vehicle Service Technicians,60,51300,61,3078000
+High School,Recreation Workers,1180,31060,1182,36650800
+High School,Receptionists and Information Clerks,2140,36090,2141,77232600
+High School,Real Estate Sales Agents,550,55380,545,30459000
+High School,Real Estate Brokers,190,81230,186,15433700
+High School,Rail-Track Laying and Maintenance Equipment Operators,10,61520,14,615200
+High School,Rail Car Repairers,20,75280,24,1505600
+High School,"Pump Operators, Except Wellhead Pumpers",20,73840,15,1476800
+High School,Public Safety Telecommunicators,90,51760,94,4658400
+High School,"Protective Service Workers, All Other",310,49000,306,15190000
+High School,"Property, Real Estate, and Community Association Managers",470,59100,473,27777000
+High School,"Production, Planning, and Expediting Clerks",700,53110,702,37177000
+High School,"Production Workers, All Other",510,37890,507,19323900
+High School,Procurement Clerks,150,49000,145,7350000
+High School,Private Detectives and Investigators,60,51130,61,3067800
+High School,Printing Press Operators,280,39740,279,11127200
+High School,Print Binding and Finishing Workers,60,38330,64,2299800
+High School,"Precision Instrument and Equipment Repairers, All Other",10,63090,11,630900
+High School,Power Plant Operators,30,103760,29,3112800
+High School,"Pourers and Casters, Metal",10,44450,7,444500
+High School,Postmasters and Mail Superintendents,10,94720,11,947200
+High School,Police and Sheriff's Patrol Officers,540,77210,538,41693400
+High School,"Plumbers, Pipefitters, and Steamfitters",820,61680,823,50577600
+High School,"Plating Machine Setters, Operators, and Tenders, Metal and Plastic",60,46280,63,2776800
+High School,"Plant and System Operators, All Other",20,63380,22,1267600
+High School,Physical Therapist Aides,280,27860,284,7800800
+High School,Photographic Process Workers and Processing Machine Operators,20,40250,22,805000
+High School,Photographers,260,47610,258,12378600
+High School,Pharmacy Technicians,540,46760,543,25250400
+High School,Pharmacy Aides,110,38970,113,4286700
+High School,"Petroleum Pump System Operators, Refinery Operators, and Gaugers",60,101920,55,6115200
+High School,"Pesticide Handlers, Sprayers, and Applicators, Vegetation",10,38180,10,381800
+High School,Pest Control Workers,190,42460,192,8067400
+High School,"Personal Service Managers, All Other",30,59840,26,1795200
+High School,"Personal Care and Service Workers, All Other",80,44500,78,3560000
+High School,Payroll and Timekeeping Clerks,190,54790,189,10410100
+High School,"Paving, Surfacing, and Tamping Equipment Operators",100,47890,96,4789000
+High School,Parking Enforcement Workers,10,53020,7,530200
+High School,"Paper Goods Machine Setters, Operators, and Tenders",80,59100,78,4728000
+High School,Packaging and Filling Machine Operators and Tenders,890,40430,889,35982700
+High School,Outdoor Power Equipment and Other Small Engine Mechanics,120,44140,117,5296800
+High School,"Opticians, Dispensing",110,39760,107,4373600
+High School,Operating Engineers and Other Construction Equipment Operators,710,59760,707,42429600
+High School,"Office Machine Operators, Except Computer",60,38270,61,2296200
+High School,"Office Clerks, General",4560,41530,4557,189376800
+High School,"Office and Administrative Support Workers, All Other",270,36930,265,9971100
+High School,Occupational Health and Safety Technicians,50,63510,49,3175500
+High School,New Accounts Clerks,40,38480,42,1539200
+High School,Musical Instrument Repairers and Tuners,10,41440,10,414400
+High School,"Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",170,40180,167,6830600
+High School,Motorboat Mechanics and Service Technicians,30,45290,26,1358700
+High School,"Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic",400,45820,400,18328000
+High School,"Molders, Shapers, and Casters, Except Metal and Plastic",250,39260,253,9815000
+High School,"Mobile Heavy Equipment Mechanics, Except Engines",270,63890,267,17250300
+High School,"Mixing and Blending Machine Setters, Operators, and Tenders",270,44920,272,12128400
+High School,Miscellaneous Construction and Related Workers,20,43690,24,873800
+High School,Miscellaneous Assemblers and Fabricators,1900,42110,1897,80009000
+High School,Millwrights,20,62480,19,1249600
+High School,"Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",20,45000,22,900000
+High School,"Meter Readers, Utilities",40,53650,39,2146000
+High School,Metal-Refining Furnace Operators and Tenders,60,70450,57,4227000
+High School,"Metal Workers and Plastic Workers, All Other",20,49350,19,987000
+High School,Merchandise Displayers and Window Trimmers,230,43260,233,9949800
+High School,Medical Secretaries and Administrative Assistants,790,40470,790,31971300
+High School,Medical Equipment Preparers,100,45250,98,4525000
+High School,Medical Appliance Technicians,30,40600,32,1218000
+High School,"Media and Communication Equipment Workers, All Other",20,82220,20,1644400
+High School,Mechanical Door Repairers,70,49410,74,3458700
+High School,"Maintenance Workers, Machinery",260,63820,264,16593200
+High School,"Maintenance and Repair Workers, General",1720,49070,1721,84400400
+High School,"Mail Clerks and Mail Machine Operators, Except Postal Service",170,41170,171,6998900
+High School,Machinists,480,60450,481,29016000
+High School,Lodging Managers,60,64160,59,3849600
+High School,Locksmiths and Safe Repairers,20,47690,24,953800
+High School,"Locker Room, Coatroom, and Dressing Room Attendants",120,22880,116,2745600
+High School,Loan Interviewers and Clerks,310,47120,313,14607200
+High School,Light Truck Drivers,1680,43760,1683,73516800
+High School,"Library Assistants, Clerical",150,33450,153,5017500
+High School,Legal Secretaries and Administrative Assistants,90,46050,85,4144500
+High School,"Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic",20,57500,21,1150000
+High School,Jewelers and Precious Stone and Metal Workers,230,46200,226,10626000
+High School,"Interviewers, Except Eligibility and Loan",250,41030,253,10257500
+High School,Insurance Sales Agents,550,52440,551,28842000
+High School,Insurance Claims and Policy Processing Clerks,230,43480,234,10000400
+High School,"Insulation Workers, Mechanical",40,45800,36,1832000
+High School,"Installation, Maintenance, and Repair Workers, All Other",320,50080,319,16025600
+High School,"Inspectors, Testers, Sorters, Samplers, and Weighers",960,48000,964,46080000
+High School,"Information and Record Clerks, All Other",320,40890,324,13084800
+High School,Industrial Machinery Mechanics,470,69670,473,32744900
+High School,"Hotel, Motel, and Resort Desk Clerks",670,34270,670,22960900
+High School,Home Health and Personal Care Aides,3020,35970,3020,108629400
+High School,Home Appliance Repairers,70,34920,65,2444400
+High School,Highway Maintenance Workers,190,52470,190,9969300
+High School,Helpers--Production Workers,250,35940,254,8985000
+High School,"Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",50,44810,51,2240500
+High School,"Helpers--Installation, Maintenance, and Repair Workers",160,41760,161,6681600
+High School,Helpers--Extraction Workers,40,54100,41,2164000
+High School,Helpers--Electricians,100,42120,104,4212000
+High School,"Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic",20,46360,21,927200
+High School,Hearing Aid Specialists,20,47710,23,954200
+High School,"Healthcare Support Workers, All Other",120,45760,124,5491200
+High School,Hazardous Materials Removal Workers,40,45740,39,1829600
+High School,"Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic",50,42920,54,2146000
+High School,Glaziers,150,50640,151,7596000
+High School,Gas Plant Operators,10,95690,11,956900
+High School,Furniture Finishers,50,46380,49,2319000
+High School,"Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders",20,37180,23,743600
+High School,Foundry Mold and Coremakers,10,45630,10,456300
+High School,Forest Fire Inspectors and Prevention Specialists,10,77480,5,774800
+High School,Food Service Managers,450,57450,452,25852500
+High School,Food Cooking Machine Operators and Tenders,80,37610,84,3008800
+High School,Food Batchmakers,570,38790,574,22110300
+High School,Floral Designers,120,34910,115,4189200
+High School,"FirstLine Supervisors of Transportation & Material Moving Workers, Exc Aircraft Cargo Handling Supervisor",820,59930,821,49142600
+High School,First-line Supervisors of Security Workers,40,51570,42,2062800
+High School,First-Line Supervisors of Retail Sales Workers,890,46900,892,41741000
+High School,"First-Line Supervisors of Protective Service Workers, All Other",30,70440,27,2113200
+High School,First-Line Supervisors of Production and Operating Workers,980,67050,978,65709000
+High School,First-Line Supervisors of Police and Detectives,110,109760,108,12073600
+High School,First-line Supervisors of Personal Service Workers,230,43660,233,10041800
+High School,First-Line Supervisors of Office and Administrative Support Workers,1960,63970,1956,125381200
+High School,First-Line Supervisors of Non-Retail Sales Workers,310,77110,310,23904100
+High School,"First-Line Supervisors of Mechanics, Installers, and Repairers",650,77380,647,50297000
+High School,"First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",450,54600,450,24570000
+High School,First-Line Supervisors of Housekeeping and Janitorial Workers,460,49770,459,22894200
+High School,First-Line Supervisors of Food Preparation and Serving Workers,2320,38070,2324,88322400
+High School,"First-Line Supervisors of Farming, Fishing, and Forestry Workers",70,57190,73,4003300
+High School,First-Line Supervisors of Correctional Officers,40,97430,35,3897200
+High School,First-Line Supervisors of Construction Trades and Extraction Workers,1680,76080,1677,127814400
+High School,"Financial Clerks, All Other",30,48310,25,1449300
+High School,File Clerks,130,38670,129,5027100
+High School,Fiberglass Laminators and Fabricators,30,46870,27,1406100
+High School,Farm Equipment Mechanics and Service Technicians,40,57100,36,2284000
+High School,"Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders",100,38940,104,3894000
+High School,"Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic",140,44910,140,6287400
+High School,Exercise Trainers and Group Fitness Instructors,1170,48730,1165,57014100
+High School,Executive Secretaries and Executive Administrative Assistants,360,55900,357,20124000
+High School,"Excavating and Loading Machine and Dragline Operators, Surface Mining",170,52240,171,8880800
+High School,Etchers and Engravers,220,39190,223,8621800
+High School,"Entertainment Attendants and Related Workers, All Other",130,28490,134,3703700
+High School,Engine and Other Machine Assemblers,20,46060,20,921200
+High School,"Eligibility Interviewers, Government Programs",230,49000,234,11270000
+High School,Elevator and Escalator Installers and Repairers,40,78680,42,3147200
+High School,Electricians,1740,61430,1739,106888200
+High School,"Electrical, Electronic, and Electromechanical Assemblers, Except Coil Winders, Tapers, and Finishers",370,45050,367,16668500
+High School,Electrical Power-Line Installers and Repairers,70,81380,69,5696600
+High School,"Electric Motor, Power Tool, and Related Repairers",20,41460,23,829200
+High School,"Earth Drillers, Except Oil and Gas",50,57850,54,2892500
+High School,Driver/Sales Workers,730,26310,731,19206300
+High School,"Dispatchers, Except Police, Fire, and Ambulance",340,49660,339,16884400
+High School,Detectives and Criminal Investigators,40,74530,38,2981200
+High School,Dental Laboratory Technicians,110,45770,114,5034700
+High School,Data Entry Keyers,240,41600,237,9984000
+High School,"Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic",190,44940,192,8538600
+High School,"Cutting and Slicing Machine Setters, Operators, and Tenders",80,44830,77,3586400
+High School,Customer Service Representatives,7320,40150,7317,293898000
+High School,"Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",60,50440,61,3026400
+High School,"Credit Authorizers, Checkers, and Clerks",30,49800,34,1494000
+High School,Crane and Tower Operators,50,69020,52,3451000
+High School,"Court, Municipal, and License Clerks",160,47330,159,7572800
+High School,Couriers and Messengers,170,41600,172,7072000
+High School,Costume Attendants,50,39940,49,1997000
+High School,Correspondence Clerks,10,45900,6,459000
+High School,Correctional Officers and Jailers,170,61340,170,10427800
+High School,"Control and Valve Installers and Repairers, Except Mechanical Door",40,69450,42,2778000
+High School,Construction and Building Inspectors,220,71040,221,15628800
+High School,Concierges,50,35350,49,1767500
+High School,Computer Numerically Controlled Tool Operators,180,45880,178,8258400
+High School,Community Health Workers,110,55520,112,6107200
+High School,"Coin, Vending, and Amusement Machine Servicers and Repairers",40,50280,38,2011200
+High School,"Coating, Painting, and Spraying Machine Setters, Operators, and Tenders",200,45720,202,9144000
+High School,"Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders",30,43730,30,1311900
+High School,"Claims Adjusters, Examiners, and Investigators",130,66240,125,8611200
+High School,Choreographers,50,37710,50,1885500
+High School,Childcare Workers,1180,30860,1176,36414800
+High School,Chemical Equipment Operators and Tenders,150,39110,148,5866500
+High School,Chefs and Head Cooks,320,44490,317,14236800
+High School,Carpenters,1930,51720,1928,99819600
+High School,Cargo and Freight Agents,90,55220,86,4969800
+High School,Cabinetmakers and Bench Carpenters,280,46750,275,13090000
+High School,"Bus Drivers, Transit and Intercity",110,49500,114,5445000
+High School,"Bus Drivers, School",300,51270,301,15381000
+High School,Bus and Truck Mechanics and Diesel Engine Specialists,340,62970,343,21409800
+High School,Brokerage Clerks,30,59140,25,1774200
+High School,Brickmasons and Blockmasons,180,56340,179,10141200
+High School,Billing and Posting Clerks,670,44780,670,30002600
+High School,Bill and Account Collectors,490,44640,492,21873600
+High School,Bicycle Repairers,40,43760,40,1750400
+High School,Baggage Porters and Bellhops,30,32530,30,975900
+High School,Automotive Glass Installers and Repairers,40,39300,35,1572000
+High School,Automotive Body and Related Repairers,190,51080,190,9705200
+High School,Animal Trainers,60,35380,59,2122800
+High School,Animal Caretakers,630,31550,630,19876500
+High School,Airfield Operations Specialists,20,61400,16,1228000
+High School,"Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",10,59810,13,598100
+High School,Aircraft Service Attendants,80,45640,80,3651200
+High School,Aircraft Cargo Handling Supervisors,10,78990,11,789900
+High School,Advertising Sales Agents,60,70790,64,4247400
+High School,Adhesive Bonding Machine Operators and Tenders,30,54640,27,1639200
+,,,,,
+High School,SUM,94270,12715870,94235,4425180900
+High School,Weighted Average Wage,,,,46941.56041
+,,,,,
+Some college - no degree,Tutors,280,35460,279,9928800
+Some college - no degree,"Teaching Assistants, Except Postsecondary",2510,34410,2512,86369100
+Some college - no degree,Order Clerks,200,41960,199,8392000
+Some college - no degree,"Computer, Automated Teller, and Office Machine Repairers",40,45310,36,1812400
+Some college - no degree,Computer User Support Specialists,1040,57560,1036,59862400
+Some college - no degree,"Bookkeeping, Accounting, and Auditing Clerks",2090,48210,2093,100758900
+,,,,,
+Some college - no degree,SUM,6160,262910,6155,267123600
+Some college - no degree,Weighted Average Wage,,,,43364.22078
+,,,,,
+Technical Degree,Tool and Die Makers,50,66660,45,3333000
+Technical Degree,"Telecommunications Equipment Installers and Repairers, Except Line Installers",180,62380,183,11228400
+Technical Degree,Surgical Technologists,120,63380,118,7605600
+Technical Degree,Surgical Assistants,30,44720,26,1341600
+Technical Degree,Sound Engineering Technicians,40,32880,40,1315200
+Technical Degree,Skincare Specialists,290,44960,289,13038400
+Technical Degree,Psychiatric Technicians,230,39340,227,9048200
+Technical Degree,Prepress Technicians and Workers,80,37590,77,3007200
+Technical Degree,Phlebotomists,290,38730,292,11231700
+Technical Degree,Paramedics,70,63430,66,4440100
+Technical Degree,Ophthalmic Medical Technicians,50,36000,53,1800000
+Technical Degree,Nursing Assistants,2470,38500,2468,95095000
+Technical Degree,Motorcycle Mechanics,40,42120,39,1684800
+Technical Degree,Medical Transcriptionists,70,38900,69,2723000
+Technical Degree,Medical Records Specialists,150,47710,154,7156500
+Technical Degree,Medical Assistants,2000,43040,1997,86080000
+Technical Degree,Massage Therapists,520,61010,518,31725200
+Technical Degree,Manicurists and Pedicurists,30,38390,33,1151700
+Technical Degree,Lighting Technicians,30,48830,29,1464900
+Technical Degree,Licensed Practical and Licensed Vocational Nurses,180,61710,182,11107800
+Technical Degree,Library Technicians,140,36630,135,5128200
+Technical Degree,Heavy and Tractor-Trailer Truck Drivers,3060,59580,3063,182314800
+Technical Degree,"Heating, Air Conditioning, and Refrigeration Mechanics and Installers",930,56200,927,52266000
+Technical Degree,"Healthcare Practitioners and Technical Workers, All Other",60,62110,55,3726600
+Technical Degree,"Health Technologists and Technicians, All Other",170,44360,169,7541200
+Technical Degree,"Hairdressers, Hairstylists, and Cosmetologists",940,34960,938,32862400
+Technical Degree,First-Line Supervisors of Firefighting and Prevention Workers,70,102070,68,7144900
+Technical Degree,Firefighters,230,49270,227,11332100
+Technical Degree,Fire Inspectors and Investigators,10,72550,9,725500
+Technical Degree,Emergency Medical Technicians,120,36940,118,4432800
+Technical Degree,"Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",10,104730,12,1047300
+Technical Degree,"Electrical and Electronics Repairers, Commercial and Industrial Equipment",120,70970,122,8516400
+Technical Degree,Dental Assistants,1050,37320,1052,39186000
+Technical Degree,Computer Numerically Controlled Tool Programmers,50,69590,50,3479500
+Technical Degree,Commercial Pilots,80,101160,83,8092800
+Technical Degree,Barbers,150,25290,146,3793500
+Technical Degree,Automotive Service Technicians and Mechanics,1110,46990,1105,52158900
+Technical Degree,Audiovisual Equipment Installers and Repairers,50,53600,49,2680000
+Technical Degree,Audio and Video Technicians,260,41600,264,10816000
+Technical Degree,Aircraft Mechanics and Service Technicians,190,65980,192,12536200
+,,,,,
+Technical Degree,SUM,15720,2122180,15689,755359400
+Technical Degree,Weighted Average Wage,,,,48050.85242
+,,,,,
+Associates Degree,Veterinary Technologists and Technicians,210,39400,211,8274000
+Associates Degree,Respiratory Therapists,110,78990,110,8688900
+Associates Degree,Radiologic Technologists and Technicians,150,80080,146,12012000
+Associates Degree,"Radio, Cellular, and Tower Equipment Installers and Repairers",20,86040,16,1720800
+Associates Degree,Radiation Therapists,10,104040,11,1040400
+Associates Degree,"Preschool Teachers, Except Special Education",780,34210,783,26683800
+Associates Degree,Physical Therapist Assistants,160,61110,162,9777600
+Associates Degree,Paralegals and Legal Assistants,500,55630,497,27815000
+Associates Degree,Occupational Therapy Assistants,80,61280,75,4902400
+Associates Degree,"Morticians, Undertakers, and Funeral Arrangers",40,61190,38,2447600
+Associates Degree,Medical Equipment Repairers,250,59980,252,14995000
+Associates Degree,Mechanical Engineering Technologists and Technicians,110,60830,112,6691300
+Associates Degree,Mechanical Drafters,60,68520,60,4111200
+Associates Degree,Magnetic Resonance Imaging Technologists,30,86680,31,2600400
+Associates Degree,"Life, Physical, and Social Science Technicians, All Other",250,52400,252,13100000
+Associates Degree,"Legal Support Workers, All Other",30,58070,29,1742100
+Associates Degree,Industrial Engineering Technologists and Technicians,150,65330,145,9799500
+Associates Degree,"Human Resources Assistants, Except Payroll and Timekeeping",110,47120,105,5183200
+Associates Degree,Health Information Technologists and Medical Registrars,60,72610,57,4356600
+Associates Degree,"Geological Technicians, Except Hydrologic Technicians",20,61150,20,1223000
+Associates Degree,Funeral Home Managers,30,89060,34,2671800
+Associates Degree,Forest and Conservation Technicians,140,44780,143,6269200
+Associates Degree,Food Science Technicians,30,48790,25,1463700
+Associates Degree,"Environmental Science and Protection Technicians, Including Health",30,54060,29,1621800
+Associates Degree,Environmental Engineering Technologists and Technicians,20,50100,22,1002000
+Associates Degree,"Engineering Technologists and Technicians, Except Drafters, All Other",210,64680,205,13582800
+Associates Degree,Electro-Mechanical and Mechatronics Technologists and Technicians,30,69770,32,2093100
+Associates Degree,Electrical and Electronics Engineering Technologists and Technicians,160,65830,157,10532800
+Associates Degree,Electrical and Electronics Drafters,40,64200,37,2568000
+Associates Degree,"Drafters, All Other",30,78210,26,2346300
+Associates Degree,Dietetic Technicians,50,39180,54,1959000
+Associates Degree,Diagnostic Medical Sonographers,70,91140,67,6379800
+Associates Degree,Dental Hygienists,320,82610,315,26435200
+Associates Degree,Computer Network Support Specialists,110,69280,107,7620800
+Associates Degree,Civil Engineering Technologists and Technicians,100,61770,96,6177000
+Associates Degree,Chemical Technicians,150,52890,151,7933500
+Associates Degree,Cardiovascular Technologists and Technicians,90,89420,86,8047800
+Associates Degree,Calibration Technologists and Technicians,30,65920,34,1977600
+Associates Degree,Broadcast Technicians,10,34570,13,345700
+Associates Degree,Avionics Technicians,30,59510,33,1785300
+Associates Degree,Architectural and Civil Drafters,290,62350,291,18081500
+Associates Degree,Air Traffic Controllers,30,156120,34,4683600
+Associates Degree,Agricultural Technicians,10,47840,9,478400
+Associates Degree,Aerospace Engineering and Operations Technologists and Technicians,30,78610,30,2358300
+,,,,,
+Associates Degree,SUM,5170,2915350,5142,305579800
+Associates Degree,Weighted Average Wage,,,,59106.34429
+,,,,,
+Bachelors Degree,Zoologists and Wildlife Biologists,20,69990,24,1399800
+Bachelors Degree,Writers and Authors,270,61020,271,16475400
+Bachelors Degree,Web Developers,220,80350,216,17677000
+Bachelors Degree,Web and Digital Interface Designers,240,99300,239,23832000
+Bachelors Degree,Training and Development Specialists,770,60510,773,46592700
+Bachelors Degree,Training and Development Managers,60,109980,58,6598800
+Bachelors Degree,Technical Writers,90,74940,89,6744600
+Bachelors Degree,"Teaching Assistants, Postsecondary",330,30010,332,9903300
+Bachelors Degree,"Teachers and Instructors, All Other",370,54010,368,19983700
+Bachelors Degree,"Tax Examiners and Collectors, and Revenue Agents",210,48530,210,10191300
+Bachelors Degree,Surveyors,70,64260,73,4498200
+Bachelors Degree,"Substitute Teachers, Short-Term",570,33100,571,18867000
+Bachelors Degree,"Substance Abuse, Behavioral Disorder, and Mental Health Counselors",610,65920,610,40211200
+Bachelors Degree,Statistical Assistants,10,51430,14,514300
+Bachelors Degree,Special Effects Artists and Animators,80,62820,82,5025600
+Bachelors Degree,"Special Education Teachers, Secondary School",100,60080,99,6008000
+Bachelors Degree,"Special Education Teachers, Preschool",30,56040,30,1681200
+Bachelors Degree,"Special Education Teachers, Middle School",60,73640,57,4418400
+Bachelors Degree,"Special Education Teachers, Kindergarten and Elementary School",120,58920,118,7070400
+Bachelors Degree,Soil and Plant Scientists,10,72550,8,725500
+Bachelors Degree,Software Quality Assurance Analysts and Testers,330,107170,331,35366100
+Bachelors Degree,Software Developers,2290,127390,2293,291723100
+Bachelors Degree,"Social Workers, All Other",70,63560,69,4449200
+Bachelors Degree,"Social Scientists and Related Workers, All Other",20,84640,19,1692800
+Bachelors Degree,Social Science Research Assistants,100,1000000,103,100000000
+Bachelors Degree,Social and Community Service Managers,150,77600,154,11640000
+Bachelors Degree,Set and Exhibit Designers,50,35230,52,1761500
+Bachelors Degree,"Securities, Commodities, and Financial Services Sales Agents",370,63480,371,23487600
+Bachelors Degree,"Secondary School Teachers, Except Special and Career/Technical Education",860,74280,858,63880800
+Bachelors Degree,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",570,84340,566,48073800
+Bachelors Degree,Sales Managers,580,130430,583,75649400
+Bachelors Degree,Sales Engineers,50,110400,47,5520000
+Bachelors Degree,Registered Nurses,2170,82270,2174,178525900
+Bachelors Degree,Recreational Therapists,40,51490,35,2059600
+Bachelors Degree,Purchasing Managers,80,123360,82,9868800
+Bachelors Degree,Public Relations Specialists,190,75700,190,14383000
+Bachelors Degree,Public Relations Managers,70,133440,66,9340800
+Bachelors Degree,Property Appraisers and Assessors,110,59920,111,6591200
+Bachelors Degree,Project Management Specialists,1400,95470,1398,133658000
+Bachelors Degree,Producers and Directors,150,71500,148,10725000
+Bachelors Degree,Probation Officers and Correctional Treatment Specialists,70,74860,71,5240200
+Bachelors Degree,"Physical Scientists, All Other",10,106850,11,1068500
+Bachelors Degree,Petroleum Engineers,10,166580,11,1665800
+Bachelors Degree,Personal Financial Advisors,490,67210,490,32932900
+Bachelors Degree,Operations Research Analysts,150,82230,149,12334500
+Bachelors Degree,Occupational Health and Safety Specialists,240,87000,242,20880000
+Bachelors Degree,"News Analysts, Reporters, and Journalists",20,53630,16,1072600
+Bachelors Degree,Network and Computer Systems Administrators,240,88330,240,21199200
+Bachelors Degree,Natural Sciences Managers,100,117190,101,11719000
+Bachelors Degree,Museum Technicians and Conservators,10,43230,11,432300
+Bachelors Degree,"Mining and Geological Engineers, Including Mining Safety Engineers",20,110960,16,2219200
+Bachelors Degree,"Middle School Teachers, Except Special and Career/Technical Education",470,75490,467,35480300
+Bachelors Degree,Microbiologists,20,67780,18,1355600
+Bachelors Degree,"Meeting, Convention, and Event Planners",280,49400,279,13832000
+Bachelors Degree,Medical and Health Services Managers,660,107980,655,71266800
+Bachelors Degree,Mechanical Engineers,410,99050,407,40610500
+Bachelors Degree,Materials Scientists,20,118720,16,2374400
+Bachelors Degree,Materials Engineers,40,85720,35,3428800
+Bachelors Degree,Marketing Managers,540,135190,542,73002600
+Bachelors Degree,Market Research Analysts and Marketing Specialists,1680,64900,1683,109032000
+Bachelors Degree,"Managers, All Other",730,1000000,727,730000000
+Bachelors Degree,Management Analysts,840,1000000,837,840000000
+Bachelors Degree,Logisticians,420,84000,417,35280000
+Bachelors Degree,Loan Officers,400,60870,398,24348000
+Bachelors Degree,Legislators,30,50600,30,1518000
+Bachelors Degree,Landscape Architects,20,82180,24,1643600
+Bachelors Degree,Labor Relations Specialists,20,91730,22,1834600
+Bachelors Degree,"Kindergarten Teachers, Except Special Education",100,60420,99,6042000
+Bachelors Degree,Interpreters and Translators,130,65990,125,8578700
+Bachelors Degree,Interior Designers,160,60170,158,9627200
+Bachelors Degree,Insurance Underwriters,40,63410,43,2536400
+Bachelors Degree,Information Security Analysts,220,97180,219,21379600
+Bachelors Degree,Industrial Production Managers,230,108370,227,24925100
+Bachelors Degree,Industrial Engineers,320,100710,324,32227200
+Bachelors Degree,Hydrologists,10,89310,7,893100
+Bachelors Degree,Human Resources Specialists,1030,67620,1030,69648600
+Bachelors Degree,Human Resources Managers,160,131070,157,20971200
+Bachelors Degree,Health Education Specialists,80,61660,83,4932800
+Bachelors Degree,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",30,102980,29,3089400
+Bachelors Degree,Graphic Designers,330,59010,329,19473300
+Bachelors Degree,"Geoscientists, Except Hydrologists and Geographers",40,104000,36,4160000
+Bachelors Degree,General and Operations Managers,6860,91230,6857,625837800
+Bachelors Degree,Fundraising Managers,30,78050,32,2341500
+Bachelors Degree,Fundraisers,90,60610,86,5454900
+Bachelors Degree,Forensic Science Technicians,30,64430,33,1932900
+Bachelors Degree,Food Scientists and Technologists,20,69170,18,1383400
+Bachelors Degree,"Fine Artists, Including Painters, Sculptors, and Illustrators",50,43680,54,2184000
+Bachelors Degree,"Financial Specialists, All Other",120,77940,118,9352800
+Bachelors Degree,Financial Risk Specialists,80,78940,76,6315200
+Bachelors Degree,Financial Managers,920,137760,919,126739200
+Bachelors Degree,Financial Examiners,50,80030,50,4001500
+Bachelors Degree,Financial and Investment Analysts,280,91280,284,25558400
+Bachelors Degree,Film and Video Editors,110,62860,114,6914600
+Bachelors Degree,Fashion Designers,10,58490,14,584900
+Bachelors Degree,Facilities Managers,320,94310,319,30179200
+Bachelors Degree,Exercise Physiologists,20,33540,22,670800
+Bachelors Degree,"Environmental Scientists and Specialists, Including Health",80,81480,77,6518400
+Bachelors Degree,Environmental Engineers,50,99180,46,4959000
+Bachelors Degree,"Entertainment And Recreation Managers, Except Gambling",30,66800,28,2004000
+Bachelors Degree,"Engineers, All Other",170,113290,168,19259300
+Bachelors Degree,Emergency Management Directors,10,79750,12,797500
+Bachelors Degree,"Elementary School Teachers, Except Special Education",1320,61710,1324,81457200
+Bachelors Degree,"Electronics Engineers, Except Computer",100,110390,98,11039000
+Bachelors Degree,Electrical Engineers,190,107520,189,20428800
+Bachelors Degree,"Education and Childcare Administrators, Preschool and Daycare",90,59400,87,5346000
+Bachelors Degree,"Education Administrators, All Other",60,84790,55,5087400
+Bachelors Degree,Editors,80,59860,77,4788800
+Bachelors Degree,"Directors, Religious Activities and Education",10,31200,10,312000
+Bachelors Degree,Dietitians and Nutritionists,80,61170,83,4893600
+Bachelors Degree,"Designers, All Other",50,63770,51,3188500
+Bachelors Degree,Database Administrators,100,97890,97,9789000
+Bachelors Degree,Data Scientists,420,116420,416,48896400
+Bachelors Degree,Credit Counselors,80,49250,82,3940000
+Bachelors Degree,Credit Analysts,90,72500,86,6525000
+Bachelors Degree,Cost Estimators,360,79150,359,28494000
+Bachelors Degree,Construction Managers,590,99900,587,58941000
+Bachelors Degree,Conservation Scientists,20,77380,18,1547600
+Bachelors Degree,Computer Systems Analysts,260,93330,258,24265800
+Bachelors Degree,Computer Programmers,190,88410,191,16797900
+Bachelors Degree,"Computer Occupations, All Other",500,95640,502,47820000
+Bachelors Degree,Computer Network Architects,130,128990,133,16768700
+Bachelors Degree,Computer Hardware Engineers,40,104080,38,4163200
+Bachelors Degree,Computer and Information Systems Managers,630,162400,629,102312000
+Bachelors Degree,Compliance Officers,320,64730,321,20713600
+Bachelors Degree,"Compensation, Benefits, and Job Analysis Specialists",90,68030,90,6122700
+Bachelors Degree,Compensation and Benefits Managers,10,132920,12,1329200
+Bachelors Degree,"Community and Social Service Specialists, All Other",50,42210,49,2110500
+Bachelors Degree,Commercial and Industrial Designers,100,66040,96,6604000
+Bachelors Degree,Coaches and Scouts,590,39920,593,23552800
+Bachelors Degree,Clinical Laboratory Technologists and Technicians,640,47450,641,30368000
+Bachelors Degree,Civil Engineers,410,92000,409,37720000
+Bachelors Degree,"Child, Family, and School Social Workers",170,49070,168,8341900
+Bachelors Degree,Chief Executives,310,163980,307,50833800
+Bachelors Degree,Chemists,70,77270,69,5408900
+Bachelors Degree,Cartographers and Photogrammetrists,20,65250,19,1305000
+Bachelors Degree,"Career/Technical Education Teachers, Secondary School",50,65240,53,3262000
+Bachelors Degree,"Career/Technical Education Teachers, Postsecondary",180,49850,177,8973000
+Bachelors Degree,"Career/Technical Education Teachers, Middle School",20,71910,17,1438200
+Bachelors Degree,"Camera Operators, Television, Video, and Film",70,46600,65,3262000
+Bachelors Degree,Buyers and Purchasing Agents,440,73770,440,32458800
+Bachelors Degree,"Business Operations Specialists, All Other",1030,79790,1034,82183700
+Bachelors Degree,Budget Analysts,40,80420,36,3216800
+Bachelors Degree,Broadcast Announcers and Radio Disc Jockeys,20,49050,17,981000
+Bachelors Degree,Biological Technicians,120,50690,122,6082800
+Bachelors Degree,"Biological Scientists, All Other",50,89860,54,4493000
+Bachelors Degree,Bioengineers and Biomedical Engineers,70,86140,74,6029800
+Bachelors Degree,Art Directors,130,91020,132,11832600
+Bachelors Degree,Architectural and Engineering Managers,240,149990,244,35997600
+Bachelors Degree,"Architects, Except Landscape and Naval",160,81710,163,13073600
+Bachelors Degree,Agricultural Inspectors,30,51330,29,1539900
+Bachelors Degree,"Agents and Business Managers of Artists, Performers, and Athletes",20,60470,22,1209400
+Bachelors Degree,Aerospace Engineers,110,130670,113,14373700
+Bachelors Degree,Advertising and Promotions Managers,30,108370,33,3251100
+Bachelors Degree,"Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors",60,49060,64,2943600
+Bachelors Degree,Administrative Services Managers,250,105800,247,26450000
+Bachelors Degree,Actuaries,10,128860,14,1288600
+Bachelors Degree,Accountants and Auditors,1810,75100,1811,135931000
+,,,,,
+Bachelors Degree,SUM,47150,15435190,47105,5585544800
+Bachelors Degree,Weighted Average Wage,,,,118463.3043
+,,,,,
+Masters Degree,Urban and Regional Planners,50,75480,53,3774000
+Masters Degree,Survey Researchers,30,50150,28,1504500
+Masters Degree,Statisticians,60,88060,64,5283600
+Masters Degree,Speech-Language Pathologists,130,85320,131,11091600
+Masters Degree,School Psychologists,50,75870,45,3793500
+Masters Degree,Rehabilitation Counselors,110,46700,111,5137000
+Masters Degree,"Psychologists, All Other",30,90270,25,2708100
+Masters Degree,Physician Assistants,220,134390,223,29565800
+Masters Degree,Orthotists and Prosthetists,100,92070,95,9207000
+Masters Degree,Occupational Therapists,90,93310,89,8397900
+Masters Degree,Nurse Practitioners,430,125700,434,54051000
+Masters Degree,Nurse Midwives,10,138020,11,1380200
+Masters Degree,Mental Health and Substance Abuse Social Workers,140,1000000,139,140000000
+Masters Degree,Marriage and Family Therapists,230,81170,232,18669100
+Masters Degree,Librarians and Media Collections Specialists,200,49760,199,9952000
+Masters Degree,Instructional Coordinators,310,59690,310,18503900
+Masters Degree,Historians,10,32000,12,320000
+Masters Degree,Healthcare Social Workers,240,72370,235,17368800
+Masters Degree,"Healthcare Diagnosing or Treating Practitioners, All Other",60,113730,62,6823800
+Masters Degree,Genetic Counselors,10,91620,6,916200
+Masters Degree,Epidemiologists,20,72160,17,1443200
+Masters Degree,"Educational, Guidance, and Career Counselors and Advisors",490,62500,493,30625000
+Masters Degree,"Education Administrators, Postsecondary",210,100110,213,21023100
+Masters Degree,"Education Administrators, Kindergarten through Secondary",210,124650,212,26176500
+Masters Degree,Curators,20,50040,18,1000800
+Masters Degree,"Counselors, All Other",90,36590,92,3293100
+Masters Degree,Athletic Trainers,30,63190,30,1895700
+Masters Degree,"Art, Drama, and Music Teachers, Postsecondary",110,63500,106,6985000
+Masters Degree,Archivists,40,51250,35,2050000
+Masters Degree,Anthropologists and Archeologists,20,72550,16,1451000
+,,,,,
+Masters Degree,SUM,3750,3292220,3736,444391400
+Masters Degree,Weighted Average Wage,,,,118504.3733
+,,,,,
+Doctoral Degree,Veterinarians,60,121850,56,7311000
+Doctoral Degree,"Surgeons, All Other",20,1000000,19,20000000
+Doctoral Degree,"Sociology Teachers, Postsecondary",10,86810,6,868100
+Doctoral Degree,"Social Work Teachers, Postsecondary",20,64140,18,1282800
+Doctoral Degree,"Social Sciences Teachers, Postsecondary, All Other",10,57950,9,579500
+Doctoral Degree,"Recreation and Fitness Studies Teachers, Postsecondary",20,55770,22,1115400
+Doctoral Degree,"Psychology Teachers, Postsecondary",30,81370,33,2441100
+Doctoral Degree,Psychiatrists,20,1000000,19,20000000
+Doctoral Degree,"Postsecondary Teachers, All Other",180,54280,180,9770400
+Doctoral Degree,"Political Science Teachers, Postsecondary",10,70820,9,708200
+Doctoral Degree,Podiatrists,10,146330,12,1463300
+Doctoral Degree,"Physics Teachers, Postsecondary",10,81060,14,810600
+Doctoral Degree,"Physicians, All Other",150,232740,149,34911000
+Doctoral Degree,Physical Therapists,220,97580,221,21467600
+Doctoral Degree,"Philosophy and Religion Teachers, Postsecondary",10,87240,9,872400
+Doctoral Degree,Pharmacists,160,136230,160,21796800
+Doctoral Degree,"Pediatricians, General",10,194160,10,1941600
+Doctoral Degree,"Orthopedic Surgeons, Except Pediatric",10,1000000,6,10000000
+Doctoral Degree,Optometrists,30,124830,32,3744900
+Doctoral Degree,Obstetricians and Gynecologists,10,1000000,12,10000000
+Doctoral Degree,"Nursing Instructors and Teachers, Postsecondary",110,75380,111,8291800
+Doctoral Degree,"Medical Scientists, Except Epidemiologists",130,78570,128,10214100
+Doctoral Degree,"Mathematical Science Teachers, Postsecondary",40,79780,38,3191200
+Doctoral Degree,"Library Science Teachers, Postsecondary",10,79880,7,798800
+Doctoral Degree,Lawyers,310,125710,312,38970100
+Doctoral Degree,"Law Teachers, Postsecondary",10,138020,12,1380200
+Doctoral Degree,Judicial Law Clerks,40,50490,36,2019600
+Doctoral Degree,"Judges, Magistrate Judges, and Magistrates",10,123640,8,1236400
+Doctoral Degree,"History Teachers, Postsecondary",20,78110,17,1562200
+Doctoral Degree,"Health Specialties Teachers, Postsecondary",450,136030,449,61213500
+Doctoral Degree,"Geography Teachers, Postsecondary",10,81940,11,819400
+Doctoral Degree,General Internal Medicine Physicians,20,1000000,20,20000000
+Doctoral Degree,"Foreign Language and Literature Teachers, Postsecondary",20,65040,17,1300800
+Doctoral Degree,Family Medicine Physicians,50,1000000,45,50000000
+Doctoral Degree,"Family and Consumer Sciences Teachers, Postsecondary",10,74790,11,747900
+Doctoral Degree,"English Language and Literature Teachers, Postsecondary",50,62780,48,3139000
+Doctoral Degree,"Engineering Teachers, Postsecondary",50,102870,45,5143500
+Doctoral Degree,Emergency Medicine Physicians,10,137530,11,1375300
+Doctoral Degree,"Education Teachers, Postsecondary",50,67580,45,3379000
+Doctoral Degree,"Economics Teachers, Postsecondary",20,102590,16,2051800
+Doctoral Degree,"Dentists, General",70,132270,71,9258900
+Doctoral Degree,"Criminal Justice and Law Enforcement Teachers, Postsecondary",10,79700,9,797000
+Doctoral Degree,"Computer Science Teachers, Postsecondary",80,100340,75,8027200
+Doctoral Degree,"Communications Teachers, Postsecondary",30,62810,27,1884300
+Doctoral Degree,Clinical and Counseling Psychologists,140,88990,137,12458600
+Doctoral Degree,Chiropractors,60,59920,55,3595200
+Doctoral Degree,"Chemistry Teachers, Postsecondary",30,105090,30,3152700
+Doctoral Degree,"Business Teachers, Postsecondary",70,124620,71,8723400
+Doctoral Degree,"Biological Science Teachers, Postsecondary",70,103830,71,7268100
+Doctoral Degree,Biochemists and Biophysicists,50,78260,49,3913000
+Doctoral Degree,Audiologists,20,96520,18,1930400
+Doctoral Degree,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",10,77900,9,779000
+Doctoral Degree,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",20,64890,16,1297800
+Doctoral Degree,"Architecture Teachers, Postsecondary",10,61530,13,615300
+Doctoral Degree,"Anthropology and Archeology Teachers, Postsecondary",10,75520,6,755200
+Doctoral Degree,Anesthesiologists,50,1000000,51,50000000
+Doctoral Degree,"Administrative Law Judges, Adjudicators, and Hearing Officers",10,103790,7,1037900
+,,,,,
+Doctoral Degree,SUM,3160,11769870,3098,503413300
+Doctoral Degree,Weighted Average Wage,,,,159308.0063
