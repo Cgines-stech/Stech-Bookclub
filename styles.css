@@ -546,3 +546,53 @@ tfoot td{
   font-size: 13px;
   line-height: 1.6;
 }
+
+.fact-layout{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  align-items:start;
+}
+
+@media (max-width: 900px){
+  .fact-layout{
+    grid-template-columns: 1fr;
+  }
+}
+
+.fact-main{
+  min-width: 0;
+}
+
+.helper-card{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 220px;
+}
+
+.helper-content{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.helper-item{
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.helper-item strong{
+  color: var(--good);
+}
+
+.helper-note{
+  color: var(--muted);
+  font-size: 13px;
+}

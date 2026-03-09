@@ -109,6 +109,8 @@ function renderFactA() {
   if (promptGenerated) {
     document.getElementById("comparisonBox").value = generatePrompt();
   }
+
+  renderHelper();
 }
 
 function renderFactB() {
@@ -119,6 +121,8 @@ function renderFactB() {
   if (promptGenerated) {
     document.getElementById("comparisonBox").value = generatePrompt();
   }
+
+  renderHelper();
 }
 
 function init() {
@@ -139,6 +143,141 @@ function init() {
   document.getElementById("comparisonBox").addEventListener("input", () => {
     promptGenerated = false;
   });
+}
+
+function parseFactValue(raw) {
+  const text = raw.trim();
+
+  if (text === "NA") {
+    return { kind: "na", raw: text, numeric: null };
+  }
+
+  if (text.includes("%")) {
+    const numeric = parseFloat(text.replace(/[%,$\s]/g, "").replace(/,/g, ""));
+    return { kind: "percent", raw: text, numeric };
+  }
+
+  if (text.includes("$")) {
+    const numeric = parseFloat(text.replace(/[$,\s]/g, ""));
+    return { kind: "currency", raw: text, numeric };
+  }
+
+  const cleaned = text.replace(/,/g, "");
+  const numeric = parseFloat(cleaned);
+
+  if (!Number.isNaN(numeric)) {
+    return { kind: "number", raw: text, numeric };
+  }
+
+  return { kind: "text", raw: text, numeric: null };
+}
+
+function fmtNumber(n) {
+  return n.toLocaleString("en-US", { maximumFractionDigits: 2 });
+}
+
+function fmtWhole(n) {
+  return Math.round(n).toLocaleString("en-US");
+}
+
+function fmtPercent(n) {
+  return `${n.toFixed(1)}%`;
+}
+
+function fmtMoney(n) {
+  return n.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0
+  });
+}
+
+function buildHelperItems() {
+  if (!factA || !factB) return [];
+
+  const a = parseFactValue(factA.value);
+  const b = parseFactValue(factB.value);
+
+  const items = [];
+
+  if (a.numeric == null || b.numeric == null) {
+    items.push(`These two facts do not convert cleanly into numbers, so this pair may need a written comparison instead of math.`);
+    return items;
+  }
+
+  if (a.kind === "number" && b.kind === "number") {
+    const diff = Math.abs(a.numeric - b.numeric);
+    const larger = a.numeric >= b.numeric ? factA : factB;
+    const smaller = a.numeric >= b.numeric ? factB : factA;
+    const ratio = Math.max(a.numeric, b.numeric) / Math.min(a.numeric, b.numeric);
+
+    items.push(`<strong>Difference:</strong> the two values are ${fmtNumber(diff)} apart.`);
+    items.push(`<strong>Ratio:</strong> "${larger.fact}" is about ${ratio.toFixed(1)} times "${smaller.fact}".`);
+    items.push(`<strong>Story starter:</strong> ${larger.fact} is larger than ${smaller.fact} by about ${fmtNumber(diff)}.`);
+  }
+
+  else if (a.kind === "percent" && b.kind === "percent") {
+    const diff = Math.abs(a.numeric - b.numeric);
+    const larger = a.numeric >= b.numeric ? factA : factB;
+    const smaller = a.numeric >= b.numeric ? factB : factA;
+
+    items.push(`<strong>Percentage-point gap:</strong> ${diff.toFixed(1)} points.`);
+    items.push(`<strong>Story starter:</strong> ${larger.fact} is ${diff.toFixed(1)} percentage points higher than ${smaller.fact}.`);
+  }
+
+  else if (a.kind === "currency" && b.kind === "currency") {
+    const diff = Math.abs(a.numeric - b.numeric);
+    const larger = a.numeric >= b.numeric ? factA : factB;
+    const smaller = a.numeric >= b.numeric ? factB : factA;
+    const ratio = Math.max(a.numeric, b.numeric) / Math.min(a.numeric, b.numeric);
+
+    items.push(`<strong>Dollar difference:</strong> ${fmtMoney(diff)}.`);
+    items.push(`<strong>Ratio:</strong> "${larger.fact}" is about ${ratio.toFixed(1)} times "${smaller.fact}".`);
+    items.push(`<strong>Story starter:</strong> ${larger.fact} is about ${fmtMoney(diff)} higher than ${smaller.fact}.`);
+  }
+
+  else if (
+    (a.kind === "number" && b.kind === "percent") ||
+    (a.kind === "percent" && b.kind === "number")
+  ) {
+    const numberFact = a.kind === "number" ? factA : factB;
+    const percentFact = a.kind === "percent" ? factA : factB;
+    const numberVal = a.kind === "number" ? a.numeric : b.numeric;
+    const percentVal = a.kind === "percent" ? a.numeric : b.numeric;
+
+    const estimate = numberVal * (percentVal / 100);
+
+    items.push(`<strong>Estimated value:</strong> ${fmtWhole(estimate)}.`);
+    items.push(`<strong>Story starter:</strong> if you apply ${percentFact.value} to ${numberFact.value}, you get about ${fmtWhole(estimate)}.`);
+    items.push(`<span class="helper-note">Use care: this estimate is most useful when the percentage actually belongs to the total you are comparing it with.</span>`);
+  }
+
+  else if (
+    (a.kind === "currency" && b.kind === "number") ||
+    (a.kind === "number" && b.kind === "currency")
+  ) {
+    items.push(`These are both numeric, but they measure different things. This pair may work better as a descriptive comparison than a direct calculation.`);
+  }
+
+  else if (
+    (a.kind === "currency" && b.kind === "percent") ||
+    (a.kind === "percent" && b.kind === "currency")
+  ) {
+    items.push(`This pair mixes a dollar amount and a percentage. You can still compare them in writing, but a direct calculation may not be meaningful.`);
+  }
+
+  return items;
+}
+
+function renderHelper() {
+  const helper = document.getElementById("helperContent");
+  if (!helper) return;
+
+  const items = buildHelperItems();
+
+  helper.innerHTML = items
+    .map(item => `<div class="helper-item">${item}</div>`)
+    .join("");
 }
 
 init();

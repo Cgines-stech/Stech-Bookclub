@@ -51,26 +51,37 @@
         </div>
       </div>
 
-      <div class="card-body">
-        <div class="fact-grid">
-          <div class="fact-card">
-            <p class="mini-label">View A</p>
-            <h3 id="factATitle" class="fact-title"></h3>
-            <p id="factAValue" class="fact-value"></p>
-            <button id="rerollA" class="btn" type="button">Reroll Fact A</button>
-          </div>
+      <div class="fact-layout">
+  <div class="fact-main">
+    <div class="fact-grid">
+      <div class="fact-card">
+        <p class="mini-label">View A</p>
+        <h3 id="factATitle" class="fact-title"></h3>
+        <p id="factAValue" class="fact-value"></p>
+        <button id="rerollA" class="btn" type="button">Reroll Fact A</button>
+      </div>
 
-          <div class="fact-card">
-            <p class="mini-label">View B</p>
-            <h3 id="factBTitle" class="fact-title"></h3>
-            <p id="factBValue" class="fact-value"></p>
-            <button id="rerollB" class="btn" type="button">Reroll Fact B</button>
-          </div>
-        </div>
-        <div style="margin-top:14px;">
-  <button id="copyPromptBtn" class="btn" type="button">
-    Use These Two Facts in My Story
-  </button>
+      <div class="fact-card">
+        <p class="mini-label">View B</p>
+        <h3 id="factBTitle" class="fact-title"></h3>
+        <p id="factBValue" class="fact-value"></p>
+        <button id="rerollB" class="btn" type="button">Reroll Fact B</button>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;">
+      <button id="copyPromptBtn" class="btn" type="button">
+        Use These Two Facts in My Story
+      </button>
+    </div>
+  </div>
+
+  <aside class="helper-card">
+    <p class="mini-label">Story Helper</p>
+    <h3 class="fact-title">Comparison Hints</h3>
+    <div id="helperContent" class="helper-content"></div>
+  </aside>
+</div>
 </div>
       </div>
     </section>
