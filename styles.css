@@ -465,3 +465,7 @@ tfoot td{
 .fill.impact{
   background: linear-gradient(90deg, rgba(120,190,255,.95), rgba(124,246,194,.65));
 }
+
+.highlight-red{
+  color:#ff6b6b;
+}
