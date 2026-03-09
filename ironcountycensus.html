@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iron County Census Story Builder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="wrap">
+    <h1>Iron County Census Story Builder</h1>
+    <p class="sub">
+      Explore census facts from Iron County, Utah, then practice turning raw data into a simple comparative story.
+    </p>
+
+    <a href="ironcountycensus.csv" download class="download-pill">
+      ⬇ Download Dataset Here
+    </a>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="card-head">
+        <h2>Data Table</h2>
+        <p class="muted">
+          Start by reviewing the full dataset. Then use the random fact cards below to practice building a story from smaller pieces of information.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="table-wrap">
+          <table id="censusTable">
+            <thead>
+              <tr>
+                <th>Fact</th>
+                <th class="num">Iron County, Utah</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head row">
+        <div>
+          <h2>Random Fact Views</h2>
+          <p class="muted">
+            Each card pulls one random fact from the table. Reroll them to discover new comparisons.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="fact-grid">
+          <div class="fact-card">
+            <p class="mini-label">View A</p>
+            <h3 id="factATitle" class="fact-title"></h3>
+            <p id="factAValue" class="fact-value"></p>
+            <button id="rerollA" class="btn" type="button">Reroll Fact A</button>
+          </div>
+
+          <div class="fact-card">
+            <p class="mini-label">View B</p>
+            <h3 id="factBTitle" class="fact-title"></h3>
+            <p id="factBValue" class="fact-value"></p>
+            <button id="rerollB" class="btn" type="button">Reroll Fact B</button>
+          </div>
+        </div>
+        <div style="margin-top:14px;">
+  <button id="copyPromptBtn" class="btn" type="button">
+    Use These Two Facts in My Story
+  </button>
+</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Build Your Comparative Story</h2>
+        <p class="muted">
+          Use the two facts above to write a simple comparison. Try turning the numbers into a sentence that feels memorable, clear, and meaningful.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="story-builder">
+          <label for="comparisonBox" class="story-label">Your comparative fact:</label>
+          <textarea
+            id="comparisonBox"
+            class="story-textarea"
+            rows="7"
+            placeholder="Example: Iron County had 20,157 households in 2020–2024, while the population in 2024 was 65,936. That means there were about 3 people per household, which matches the dataset’s average of 3.03."
+          ></textarea>
+
+          <div class="prompt-box">
+            <strong>Try prompts like:</strong><br>
+            Which number is larger?<br>
+            How many times bigger is one than the other?<br>
+            What does this number suggest about life in Iron County?<br>
+            Could you explain these two facts in a way a student would remember?
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap footer">
+      <p class="muted">
+        Source:
+        <a href="https://www.census.gov/quickfacts/fact/table/ironcountyutah/PST045224" target="_blank" rel="noopener noreferrer">
+          U.S. Census Bureau QuickFacts
+        </a><br>
+        This page is meant to help users practice data storytelling by turning large tables into small, understandable comparisons.<br><br>
+
+        <strong>Discussion Questions:</strong><br>
+        Which facts feel easiest to turn into a story?<br>
+        Which facts are harder to compare, and why?<br>
+        Does simplifying the data help make it more memorable, or does it leave out something important?<br>
+        Which comparisons would be most useful for a student, educator, or local leader?<br>
+        What is one fact from Iron County that surprised you the most?<br>
+        If you had to explain Iron County in one sentence using this table, what would you say?
+      </p>
+    </footer>
+  </main>
+
+  <script src="ironcountycensus.js"></script>
+</body>
+</html>

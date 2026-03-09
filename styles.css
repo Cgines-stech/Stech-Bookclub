@@ -469,3 +469,80 @@ tfoot td{
 .highlight-red{
   color:#ff6b6b;
 }
+
+.fact-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.fact-card{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  padding: 16px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  min-height: 220px;
+}
+
+.mini-label{
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: var(--muted);
+}
+
+.fact-title{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.fact-value{
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--good);
+}
+
+.story-builder{
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.story-label{
+  font-size: 14px;
+  color: var(--text);
+}
+
+.story-textarea{
+  width: 100%;
+  min-height: 170px;
+  resize: vertical;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  padding: 14px;
+  font: inherit;
+  line-height: 1.5;
+}
+
+.story-textarea:focus{
+  outline: 2px solid rgba(124,246,194,.35);
+  border-color: rgba(124,246,194,.65);
+}
+
+.prompt-box{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
