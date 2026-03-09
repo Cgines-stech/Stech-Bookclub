@@ -422,3 +422,46 @@ tfoot td{
   color: white;
   border-bottom: 1px solid rgba(124,246,194,.9);
 }
+
+.summary-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.summary-card{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  padding: 14px;
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+}
+
+.summary-label{
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+.pos{
+  color: rgba(124,246,194,.95);
+}
+
+.neg{
+  color: rgba(255,120,120,.95);
+}
+
+.fill.positive{
+  background: linear-gradient(90deg, rgba(124,246,194,.95), rgba(124,246,194,.55));
+}
+
+.fill.negative{
+  background: linear-gradient(90deg, rgba(255,120,120,.95), rgba(255,120,120,.55));
+}
+
+.fill.impact{
+  background: linear-gradient(90deg, rgba(120,190,255,.95), rgba(124,246,194,.65));
+}

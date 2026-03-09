@@ -1,0 +1,133 @@
+<!--jobgrowth.html-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iron County Job Growth and Wages - September 2025</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="wrap">
+    <h1>Iron County Job Growth and Wages</h1>
+    <p class="sub">
+      A snapshot of job growth and average monthly wages by industry in Iron County for September 2025.
+    </p>
+
+    <a href="jobgrowth.csv" download class="download-pill">
+      ⬇ Download Dataset Here
+    </a>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="card-head row">
+        <div>
+          <h2>Quick Summary</h2>
+          <p class="muted">
+            This page highlights which industries added jobs, which lost jobs, and how wages compare across Iron County.
+          </p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="summary-grid" id="summaryGrid"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head row">
+        <div>
+          <h2>Visualizations</h2>
+          <p class="muted">
+            Compare job growth and average monthly wages by industry.
+          </p>
+        </div>
+        <div class="controls">
+          <label class="seg">
+            <input type="radio" name="metric" value="growth" checked>
+            <span>Job Growth</span>
+          </label>
+          <label class="seg">
+            <input type="radio" name="metric" value="wage">
+            <span>Monthly Wage</span>
+          </label>
+          <button id="sortBtn" class="btn" type="button">
+            Sort: Growth
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h3 class="minihead">A) Industry comparison</h3>
+        <div id="chart" class="chart" role="img" aria-label="Job growth or wage chart"></div>
+        <p class="note" id="chartNote"></p>
+
+        <hr class="sep">
+
+        <h3 class="minihead">B) Growth weighted by wage</h3>
+        <p class="muted small">
+          This view shows how much each industry contributes when job change is considered alongside wage levels.
+        </p>
+        <div id="impactChart" class="chart" role="img" aria-label="Growth times wage chart"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Data Table</h2>
+        <p class="muted">
+          Growth values can be positive or negative. Wages are average monthly wages.
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="table-wrap">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>Job Category</th>
+                <th class="num">Total Jobs</th>
+                <th class="num">Growth</th>
+                <th class="num">Average Monthly Wage</th>
+                <th class="num">Growth × Wage</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Totals</strong></td>
+                <td class="num" id="totalJobsFoot"></td>
+                <td class="num" id="totalGrowthFoot"></td>
+                <td class="num muted">—</td>
+                <td class="num" id="totalImpactFoot"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>What This Means</h2>
+        <p class="muted">
+          A simple read on where the labor market appears strongest in Iron County.
+        </p>
+      </div>
+      <div class="card-body">
+        <p id="storyText"></p>
+        <div id="storyChips" class="chips"></div>
+      </div>
+    </section>
+
+    <footer class="wrap footer">
+      <p class="muted">
+        Source: Iron County industry totals, growth, and wages for September 2025.<br>
+        “Growth × Wage” helps show which sectors combine workforce change with stronger pay levels.<br>
+        Weighted Average Monthly Wage: <strong id="weightedWageFooter"></strong>
+      </p>
+    </footer>
+  </main>
+
+  <script src="jobgrowth.js"></script>
+</body>
+</html>
