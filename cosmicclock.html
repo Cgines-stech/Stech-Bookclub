@@ -12,9 +12,9 @@
       --accent: #fbbf24;
       --accent-2: #f97316;
       --text: #eef6ff;
-      --muted: #a7bdd8;
-      --card: rgba(9, 18, 43, 0.78);
-      --glow: rgba(125, 211, 252, 0.45);
+      --muted: #9fb4d0;
+      --card: rgba(9, 18, 43, 0.74);
+      --glow: rgba(125, 211, 252, 0.42);
     }
 
     * { box-sizing: border-box; }
@@ -22,9 +22,6 @@
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
@@ -32,6 +29,7 @@
         radial-gradient(circle at 80% 30%, rgba(251, 191, 36, 0.10), transparent 20%),
         radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.10), transparent 18%),
         linear-gradient(180deg, var(--bg2), var(--bg1));
+      overflow-x: hidden;
     }
 
     .stars,
@@ -62,7 +60,7 @@
         radial-gradient(1.2px 1.2px at 190px 110px, #bfdbfe, transparent),
         radial-gradient(1.8px 1.8px at 280px 180px, #fef3c7, transparent);
       background-size: 320px 240px;
-      opacity: 0.4;
+      opacity: 0.38;
       animation: drift 120s linear reverse infinite;
     }
 
@@ -72,7 +70,7 @@
         radial-gradient(1.7px 1.7px at 200px 40px, #f0f9ff, transparent),
         radial-gradient(1.3px 1.3px at 310px 150px, #fde68a, transparent);
       background-size: 420px 260px;
-      opacity: 0.25;
+      opacity: 0.22;
       animation: twinkle 6s ease-in-out infinite;
     }
 
@@ -86,71 +84,68 @@
       50% { opacity: 0.38; }
     }
 
-    .wrap {
-      width: min(95vw, 1140px);
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: center;
+    .page {
+      width: min(96vw, 1320px);
+      margin: 0 auto;
+      padding: 18px 0 22px;
       position: relative;
       z-index: 1;
-      padding: 20px 0;
     }
 
     .panel {
       background: var(--card);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 26px;
-      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 22px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.32);
       backdrop-filter: blur(10px);
     }
 
-    .clock-panel {
-      padding: 20px;
+    .topbar {
       display: grid;
-      place-items: center;
-    }
-
-    .info-panel {
-      padding: 28px;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 18px 22px;
+      margin-bottom: 18px;
     }
 
     .eyebrow {
-      font-size: 0.85rem;
+      font-size: 0.72rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 6px;
+      font-size: clamp(1.5rem, 2vw, 2.15rem);
       line-height: 1.05;
     }
 
     .subtitle {
-      margin: 0 0 22px;
+      margin: 0;
       color: var(--muted);
-      line-height: 1.5;
-      font-size: 1rem;
+      line-height: 1.45;
+      font-size: 0.92rem;
+      max-width: 760px;
     }
 
     .controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 22px;
+      justify-content: flex-end;
+      gap: 10px;
     }
 
     button {
       border: 0;
       border-radius: 999px;
-      padding: 12px 18px;
-      font-size: 0.98rem;
+      padding: 10px 16px;
+      font-size: 0.9rem;
       font-weight: 700;
       cursor: pointer;
-      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+      transition: transform 0.18s ease, background 0.18s ease;
     }
 
     button:hover {
@@ -168,75 +163,112 @@
       border: 1px solid rgba(255,255,255,0.12);
     }
 
+    .content {
+      display: grid;
+      grid-template-columns: minmax(420px, 1.05fr) minmax(300px, 0.95fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .clock-panel {
+      padding: 14px;
+      display: grid;
+      place-items: center;
+      min-height: 620px;
+    }
+
+    .info-panel {
+      padding: 20px;
+    }
+
     .event-name {
-      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-size: clamp(1.3rem, 1.9vw, 1.75rem);
       font-weight: 700;
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       color: #ffffff;
     }
 
     .event-meta {
       display: grid;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       width: fit-content;
-      padding: 11px 15px;
+      padding: 9px 13px;
       border-radius: 999px;
       background: rgba(125, 211, 252, 0.12);
-      border: 1px solid rgba(125, 211, 252, 0.28);
+      border: 1px solid rgba(125, 211, 252, 0.24);
       color: #dff5ff;
       font-weight: 600;
+      font-size: 0.9rem;
     }
 
     .small {
       color: var(--muted);
-      line-height: 1.6;
-      font-size: 0.98rem;
+      line-height: 1.55;
+      font-size: 0.9rem;
+    }
+
+    .status-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .status-chip {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+      font-size: 0.84rem;
     }
 
     .timeline {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
       display: grid;
-      gap: 10px;
-      max-height: 300px;
+      gap: 8px;
+      max-height: 360px;
       overflow: auto;
     }
 
     .timeline-item {
-      padding: 10px 12px;
-      border-radius: 14px;
+      padding: 9px 11px;
+      border-radius: 12px;
       background: rgba(255,255,255,0.03);
       border: 1px solid transparent;
       transition: 0.25s ease;
+      font-size: 0.88rem;
     }
 
     .timeline-item.active {
       background: rgba(251, 191, 36, 0.12);
-      border-color: rgba(251, 191, 36, 0.35);
+      border-color: rgba(251, 191, 36, 0.32);
       transform: translateX(4px);
     }
 
     .timeline-item strong {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
+      font-size: 0.92rem;
     }
 
     svg {
-      width: min(88vw, 620px);
+      width: min(100%, 760px);
       height: auto;
       display: block;
     }
 
     .clock-face {
-      filter: drop-shadow(0 0 26px var(--glow));
+      filter: drop-shadow(0 0 24px var(--glow));
     }
 
     .center-dot {
@@ -256,59 +288,40 @@
     }
 
     .orbit-label {
-      font-size: 18px;
-      fill: rgba(255,255,255,0.75);
+      font-size: 16px;
+      fill: rgba(255,255,255,0.74);
       font-weight: 700;
       text-anchor: middle;
     }
 
     .face-label {
-      font-size: 11px;
-      fill: rgba(255,255,255,0.86);
+      font-size: 10px;
+      fill: rgba(255,255,255,0.84);
       font-weight: 700;
       text-anchor: middle;
     }
 
-    .event-label {
-      font-size: 10px;
-      fill: rgba(255,255,255,0.88);
-      text-anchor: middle;
-      pointer-events: none;
-    }
-
-    .status-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-
-    .status-chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
     .credit {
-      margin-top: 18px;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.86rem;
+      margin-top: 16px;
+      color: rgba(255,255,255,0.48);
+      font-size: 0.8rem;
     }
 
-    @media (max-width: 940px) {
-      .wrap {
+    @media (max-width: 980px) {
+      .topbar {
         grid-template-columns: 1fr;
       }
 
-      .info-panel {
-        order: -1;
+      .controls {
+        justify-content: flex-start;
       }
 
-      .timeline {
-        max-height: 220px;
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .clock-panel {
+        min-height: auto;
       }
     }
   </style>
@@ -316,65 +329,70 @@
 <body>
   <div class="stars"></div>
 
-  <main class="wrap">
-    <section class="panel clock-panel">
-      <svg viewBox="0 0 640 640" aria-label="Cosmic Clock">
-        <defs>
-          <radialGradient id="faceGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(255,255,255,0.14)" />
-            <stop offset="70%" stop-color="rgba(125,211,252,0.08)" />
-            <stop offset="100%" stop-color="rgba(255,255,255,0.02)" />
-          </radialGradient>
-        </defs>
-
-        <circle cx="320" cy="320" r="270" fill="url(#faceGlow)" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
-        <circle class="clock-face" cx="320" cy="320" r="230" fill="none" stroke="rgba(125,211,252,0.85)" stroke-width="10"></circle>
-        <circle cx="320" cy="320" r="196" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
-
-        <g id="ticks"></g>
-        <g id="labels"></g>
-        <g id="eventMarkers"></g>
-        <g id="eventTexts"></g>
-
-        <g class="hand hand-shadow" id="handGroup">
-          <line x1="320" y1="336" x2="320" y2="116" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"></line>
-          <polygon points="320,98 309,128 331,128" fill="#fbbf24"></polygon>
-        </g>
-
-        <circle class="center-dot" cx="320" cy="320" r="11"></circle>
-        <text x="320" y="58" class="orbit-label">Cosmic Clock</text>
-      </svg>
-    </section>
-
-    <section class="panel info-panel">
-      <div class="eyebrow">2 cosmic days</div>
-      <h1>History of the Universe on a Clock</h1>
-      <p class="subtitle">The hand sweeps between milestones, pauses for 8 seconds at each one, waits 8 seconds at the end, and starts over automatically.</p>
+  <main class="page">
+    <section class="panel topbar">
+      <div>
+        <div class="eyebrow">2 cosmic days</div>
+        <h1>History of the Universe on a Clock</h1>
+        <p class="subtitle">The hand sweeps between milestones, pauses for 4 seconds at each event, waits 4 seconds at the end, and then starts over automatically.</p>
+      </div>
 
       <div class="controls">
         <button id="toggleBtn" class="primary-btn">Pause</button>
         <button id="restartBtn" class="ghost-btn">Restart</button>
       </div>
+    </section>
 
-      <h2 class="event-name" id="eventName">Loading…</h2>
+    <section class="content">
+      <section class="panel clock-panel">
+        <svg viewBox="0 0 640 640" aria-label="Cosmic Clock">
+          <defs>
+            <radialGradient id="faceGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.14)" />
+              <stop offset="70%" stop-color="rgba(125,211,252,0.08)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0.02)" />
+            </radialGradient>
+          </defs>
 
-      <div class="event-meta">
-        <div class="pill">🕒 <span id="eventTime">12:00:00 AM</span></div>
-        <div class="pill">📅 <span id="eventDay">Day 0</span></div>
-      </div>
+          <circle cx="320" cy="320" r="270" fill="url(#faceGlow)" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
+          <circle class="clock-face" cx="320" cy="320" r="230" fill="none" stroke="rgba(125,211,252,0.85)" stroke-width="10"></circle>
+          <circle cx="320" cy="320" r="196" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
 
-      <div class="small" id="eventDescription">
-        The clock begins with the Big Bang and travels through each cosmic milestone in sequence.
-      </div>
+          <g id="ticks"></g>
+          <g id="labels"></g>
+          <g id="eventMarkers"></g>
 
-      <div class="status-row">
-        <div class="status-chip">Pause at each event: 8 seconds</div>
-        <div class="status-chip">Final pause before restart: 8 seconds</div>
-      </div>
+          <g class="hand hand-shadow" id="handGroup">
+            <line x1="320" y1="336" x2="320" y2="116" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"></line>
+            <polygon points="320,98 309,128 331,128" fill="#fbbf24"></polygon>
+          </g>
 
-      <div class="timeline" id="timeline"></div>
+          <circle class="center-dot" cx="320" cy="320" r="11"></circle>
+          <text x="320" y="58" class="orbit-label">Cosmic Clock</text>
+        </svg>
+      </section>
 
-      <div class="credit">Single-file page for easy GitHub Pages hosting.</div>
+      <section class="panel info-panel">
+        <h2 class="event-name" id="eventName">Loading…</h2>
+
+        <div class="event-meta">
+          <div class="pill">🕒 <span id="eventTime">12:00:00 AM</span></div>
+          <div class="pill">📅 <span id="eventDay">Day 0</span></div>
+        </div>
+
+        <div class="small" id="eventDescription">
+          The clock begins with the Big Bang and travels through each cosmic milestone in sequence.
+        </div>
+
+        <div class="status-row">
+          <div class="status-chip">Pause at each event: 4 seconds</div>
+          <div class="status-chip">Final pause before restart: 4 seconds</div>
+        </div>
+
+        <div class="timeline" id="timeline"></div>
+
+        <div class="credit">Single-file page for easy GitHub Pages hosting.</div>
+      </section>
     </section>
   </main>
 
@@ -392,7 +410,7 @@
       { name: "Current Time", time: "12:00:00 AM", day: 2 }
     ];
 
-    const HOLD_MS = 8000;
+    const HOLD_MS = 4000;
     const TRANSITION_MS = 2200;
 
     const eventNameEl = document.getElementById('eventName');
@@ -404,7 +422,6 @@
     const ticksGroup = document.getElementById('ticks');
     const labelsGroup = document.getElementById('labels');
     const eventMarkersGroup = document.getElementById('eventMarkers');
-    const eventTextsGroup = document.getElementById('eventTexts');
     const toggleBtn = document.getElementById('toggleBtn');
     const restartBtn = document.getElementById('restartBtn');
 
@@ -440,7 +457,6 @@
     let currentIndex = 0;
     let isPlaying = true;
     let runToken = 0;
-    let remainingHold = HOLD_MS;
 
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -533,24 +549,12 @@
       });
     }
 
-    function shortenLabel(text) {
-      const replacements = {
-        'Single-celled Life Arrive': 'Life',
-        'Vertebrates Arrive': 'Vertebrates',
-        'Dinosaurs and Mammals Arrive': 'Dinos + Mammals',
-        'Entire Human History Starts after': 'Human History',
-        'Current Time': 'Now'
-      };
-      return replacements[text] || text;
-    }
-
     function createEventMarkers() {
       const cx = 320;
       const cy = 320;
 
       mappedEvents.forEach((event, idx) => {
         const angle = (event.absoluteSeconds / totalSeconds) * Math.PI * 2 - Math.PI / 2;
-
         const x = cx + Math.cos(angle) * 196;
         const y = cy + Math.sin(angle) * 196;
         const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
@@ -561,16 +565,6 @@
         dot.setAttribute('opacity', '0.95');
         dot.setAttribute('data-index', idx);
         eventMarkersGroup.appendChild(dot);
-
-        const lr = idx % 2 === 0 ? 170 : 154;
-        const lx = cx + Math.cos(angle) * lr;
-        const ly = cy + Math.sin(angle) * lr + 4;
-        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        label.setAttribute('x', lx);
-        label.setAttribute('y', ly);
-        label.setAttribute('class', 'event-label');
-        label.textContent = shortenLabel(event.name);
-        eventTextsGroup.appendChild(label);
       });
     }
 
@@ -627,10 +621,8 @@
         }
 
         const nextIndex = currentIndex === mappedEvents.length - 1 ? 0 : currentIndex + 1;
-        const duration = currentIndex === mappedEvents.length - 1 ? TRANSITION_MS : TRANSITION_MS;
-
-        moveHandTo(nextIndex, duration);
-        const moved = await controlledWait(duration, token);
+        moveHandTo(nextIndex, TRANSITION_MS);
+        const moved = await controlledWait(TRANSITION_MS, token);
         if (!moved) return;
 
         setActiveEvent(nextIndex);
