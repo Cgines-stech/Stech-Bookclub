@@ -15,6 +15,10 @@
       --muted: #9fb4d0;
       --card: rgba(9, 18, 43, 0.74);
       --glow: rgba(125, 211, 252, 0.42);
+      --lap1: rgba(96,165,250,0.78);
+      --lap2: rgba(168,85,247,0.78);
+      --lap3: rgba(34,197,94,0.78);
+      --lap4: rgba(251,191,36,0.84);
     }
 
     * { box-sizing: border-box; }
@@ -215,14 +219,14 @@
       font-size: 0.84rem;
     }
 
-    .status-row {
+    .legend {
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
       margin-top: 10px;
     }
 
-    .status-chip {
+    .legend-chip {
       padding: 6px 9px;
       border-radius: 999px;
       background: rgba(255,255,255,0.06);
@@ -333,9 +337,9 @@
   <main class="page">
     <section class="panel topbar">
       <div>
-        <div class="eyebrow">2 cosmic days</div>
+        <div class="eyebrow">2 cosmic days · 4 clock rotations</div>
         <h1>History of the Universe on a Clock</h1>
-        <p class="subtitle">The hand sweeps between milestones, pauses for 4 seconds at each event, waits 4 seconds at the end, and then starts over automatically.</p>
+        <p class="subtitle">A normal 12-hour clock face represents the full 48-hour cosmic timeline. The hand makes 4 full rotations, pausing for 4 seconds at each event.</p>
       </div>
 
       <div class="controls">
@@ -357,22 +361,26 @@
 
           <circle cx="320" cy="320" r="270" fill="url(#faceGlow)" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
           <circle class="clock-face" cx="320" cy="320" r="230" fill="none" stroke="rgba(125,211,252,0.85)" stroke-width="10"></circle>
-          <circle cx="320" cy="320" r="196" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
+          <circle cx="320" cy="320" r="188" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
 
           <g id="ticks"></g>
           <g id="labels"></g>
-          <!-- faint timeline orbit -->
-          <!-- faint timeline orbit -->
-          <circle cx="320" cy="320" r="212" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 6"></circle>
 
-          <!-- progress trail -->
-          <circle id="progressRing" cx="320" cy="320" r="212" fill="none" stroke="rgba(251,191,36,0.7)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1332" stroke-dashoffset="1332"></circle>
+          <circle cx="320" cy="320" r="212" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2" stroke-dasharray="4 7"></circle>
+          <circle cx="320" cy="320" r="204" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-dasharray="4 7"></circle>
+          <circle cx="320" cy="320" r="196" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="2" stroke-dasharray="4 7"></circle>
+          <circle cx="320" cy="320" r="188" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-dasharray="4 7"></circle>
+
+          <circle id="progressRing1" cx="320" cy="320" r="212" fill="none" stroke="var(--lap1)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1332" stroke-dashoffset="1332"></circle>
+          <circle id="progressRing2" cx="320" cy="320" r="204" fill="none" stroke="var(--lap2)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1282" stroke-dashoffset="1282"></circle>
+          <circle id="progressRing3" cx="320" cy="320" r="196" fill="none" stroke="var(--lap3)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1232" stroke-dashoffset="1232"></circle>
+          <circle id="progressRing4" cx="320" cy="320" r="188" fill="none" stroke="var(--lap4)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1181" stroke-dashoffset="1181"></circle>
 
           <g id="eventMarkers"></g>
 
           <g class="hand hand-shadow" id="handGroup">
-            <line x1="320" y1="336" x2="320" y2="116" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"></line>
-            <polygon points="320,98 309,128 331,128" fill="#fbbf24"></polygon>
+            <line x1="320" y1="336" x2="320" y2="108" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"></line>
+            <polygon points="320,90 309,120 331,120" fill="#fbbf24"></polygon>
           </g>
 
           <circle class="center-dot" cx="320" cy="320" r="11"></circle>
@@ -390,6 +398,13 @@
 
         <div class="small" id="eventDescription">
           The clock begins with the Big Bang and travels through each cosmic milestone in sequence.
+        </div>
+
+        <div class="legend">
+          <div class="legend-chip">Blue = rotation 1</div>
+          <div class="legend-chip">Purple = rotation 2</div>
+          <div class="legend-chip">Green = rotation 3</div>
+          <div class="legend-chip">Gold = rotation 4</div>
         </div>
 
         <div class="timeline" id="timeline"></div>
@@ -415,6 +430,15 @@
 
     const HOLD_MS = 4000;
     const TRANSITION_MS = 2200;
+    const TOTAL_SECONDS = 2 * 24 * 60 * 60;
+    const LAP_DEGREES = 360;
+    const TOTAL_DEGREES = 1440;
+    const ringData = [
+      { id: 'progressRing1', radius: 212, circumference: 1332 },
+      { id: 'progressRing2', radius: 204, circumference: 1282 },
+      { id: 'progressRing3', radius: 196, circumference: 1232 },
+      { id: 'progressRing4', radius: 188, circumference: 1181 }
+    ];
 
     const eventNameEl = document.getElementById('eventName');
     const eventTimeEl = document.getElementById('eventTime');
@@ -425,20 +449,20 @@
     const ticksGroup = document.getElementById('ticks');
     const labelsGroup = document.getElementById('labels');
     const eventMarkersGroup = document.getElementById('eventMarkers');
-    const progressRing = document.getElementById('progressRing');
     const toggleBtn = document.getElementById('toggleBtn');
     const restartBtn = document.getElementById('restartBtn');
+    const progressRings = ringData.map(ring => ({ ...ring, el: document.getElementById(ring.id) }));
 
     const descriptions = {
-      "Big Bang": "The universe begins at the very start of the 2-day cosmic clock.",
-      "Sun Born": "Our Sun appears late on Day 1 in this compressed timeline.",
-      "Earth Born": "Earth forms just minutes after the Sun on the cosmic clock.",
+      "Big Bang": "The universe begins at the very start of the 48-hour cosmic timeline.",
+      "Sun Born": "Our Sun appears during the third of four clock rotations.",
+      "Earth Born": "Earth forms shortly after the Sun on the same rotation.",
       "Single-celled Life Arrive": "Early life appears and dominates most of the remaining timeline.",
-      "Vertebrates Arrive": "Complex animals with backbones arrive close to the end of Day 1.",
-      "Dinosaurs and Mammals Arrive": "Dinosaurs and early mammals show up in the final half hour before midnight.",
-      "T. rex Arrives": "T. rex appears very late in cosmic history.",
-      "Astroid Hits": "A world-changing asteroid impact follows shortly after.",
-      "Entire Human History Starts after": "Recorded human history occupies only the tiniest sliver before midnight.",
+      "Vertebrates Arrive": "Vertebrates arrive very late in the cosmic sequence.",
+      "Dinosaurs and Mammals Arrive": "Dinosaurs and mammals appear close to the end of the final rotation.",
+      "T. rex Arrives": "T. rex appears in the closing moments of cosmic history.",
+      "Astroid Hits": "A major asteroid impact follows shortly after T. rex appears.",
+      "Entire Human History Starts after": "Recorded human history is only a tiny sliver at the very end.",
       "Current Time": "The clock reaches the present moment, then pauses before restarting."
     };
 
@@ -449,8 +473,6 @@
       if (modifier === 'PM' && hours !== 12) hours += 12;
       return hours * 3600 + minutes * 60 + seconds;
     }
-
-    const totalSeconds = 2 * 24 * 60 * 60;
 
     const mappedEvents = events.map((event, index) => ({
       ...event,
@@ -494,13 +516,32 @@
     }
 
     function secondsToDegrees(absoluteSeconds) {
-      // 2 full days mapped onto 1 normal 12-hour clock face
-      // 48 hours = 360 degrees, so each full lap represents the whole cosmic timeline
-      return (absoluteSeconds / totalSeconds) * 360;
+      return (absoluteSeconds / TOTAL_SECONDS) * TOTAL_DEGREES;
     }
 
-    function handRotation(angle) {
-      return `rotate(${angle}deg)`;
+    function angleOnClock(totalDegrees) {
+      return ((totalDegrees % LAP_DEGREES) + LAP_DEGREES) % LAP_DEGREES;
+    }
+
+    function handRotation(totalDegrees) {
+      return `rotate(${totalDegrees}deg)`;
+    }
+
+    function lapNumber(totalDegrees) {
+      return Math.min(4, Math.floor(totalDegrees / LAP_DEGREES) + 1);
+    }
+
+    function setRingProgress(ring, turnsCompleted) {
+      const clamped = Math.max(0, Math.min(1, turnsCompleted));
+      ring.el.style.strokeDashoffset = ring.circumference * (1 - clamped);
+    }
+
+    function updateProgressRings(totalDegrees) {
+      const turns = totalDegrees / LAP_DEGREES;
+      setRingProgress(progressRings[0], turns);
+      setRingProgress(progressRings[1], turns - 1);
+      setRingProgress(progressRings[2], turns - 2);
+      setRingProgress(progressRings[3], turns - 3);
     }
 
     function createTicks() {
@@ -564,10 +605,11 @@
       const cy = 320;
 
       mappedEvents.forEach((event, idx) => {
-        const angle = (event.absoluteSeconds / totalSeconds) * Math.PI * 2 - Math.PI / 2;
-
-        // Place markers slightly OUTSIDE the inner ring so they are visible
-        const radius = 212;
+        const totalDegrees = secondsToDegrees(event.absoluteSeconds);
+        const lapIndex = Math.min(progressRings.length - 1, Math.floor(totalDegrees / LAP_DEGREES));
+        const ring = progressRings[lapIndex];
+        const angle = (angleOnClock(totalDegrees) / 360) * Math.PI * 2 - Math.PI / 2;
+        const radius = ring.radius;
         const x = cx + Math.cos(angle) * radius;
         const y = cy + Math.sin(angle) * radius;
 
@@ -578,38 +620,35 @@
         dot.setAttribute('fill', event.name === 'Current Time' ? '#fbbf24' : '#7dd3fc');
         dot.setAttribute('opacity', '1');
         dot.setAttribute('data-index', idx);
-
-        // ensure markers render above rings
         dot.style.pointerEvents = 'none';
-
         eventMarkersGroup.appendChild(dot);
       });
     }
 
     function renderTimeline() {
-      timeline.innerHTML = mappedEvents.map((event, index) => `
-        <div class="timeline-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-          <strong>${event.name}</strong>
-          <span>${event.time} · Day ${event.day}</span>
-        </div>
-      `).join('');
+      timeline.innerHTML = mappedEvents.map((event, index) => {
+        const rotation = lapNumber(secondsToDegrees(event.absoluteSeconds));
+        return `
+          <div class="timeline-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+            <strong>${event.name}</strong>
+            <span>${event.time} · Day ${event.day} · Rotation ${rotation}</span>
+          </div>
+        `;
+      }).join('');
     }
 
     function setActiveEvent(index) {
       currentIndex = index;
       const event = mappedEvents[index];
-      const angle = secondsToDegrees(event.absoluteSeconds);
+      const totalDegrees = secondsToDegrees(event.absoluteSeconds);
+      const rotation = lapNumber(totalDegrees);
 
-      handGroup.style.transform = handRotation(angle);
+      handGroup.style.transform = handRotation(totalDegrees);
+      updateProgressRings(totalDegrees);
 
-      // update glowing progress trail
-      const fraction = angle / 360;
-      const circumference = 1332;
-      const offset = circumference * (1 - fraction);
-      progressRing.style.strokeDashoffset = offset;
       eventNameEl.textContent = event.name;
       eventTimeEl.textContent = event.time;
-      eventDayEl.textContent = formatDay(event.day);
+      eventDayEl.textContent = `${formatDay(event.day)} · Rotation ${rotation}`;
       eventDescriptionEl.textContent = descriptions[event.name] || 'A major milestone on the cosmic clock.';
 
       document.querySelectorAll('.timeline-item').forEach((item, itemIndex) => {
@@ -664,7 +703,7 @@
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           handGroup.style.transitionDuration = `${TRANSITION_MS}ms`;
-          if (isPlaying) playSequence(runToken);
+          if (isPlaying) startWithInitialPause();
         });
       });
     }
@@ -689,10 +728,9 @@
 
     handGroup.style.transitionDuration = `${TRANSITION_MS}ms`;
 
-    // Pause on Day 0 (Big Bang) before starting the first movement
-    async function startWithInitialPause(){
-      await controlledWait(HOLD_MS, runToken);
-      if (isPlaying) playSequence(runToken);
+    async function startWithInitialPause() {
+      const held = await controlledWait(HOLD_MS, runToken);
+      if (held && isPlaying) playSequence(runToken);
     }
 
     startWithInitialPause();
