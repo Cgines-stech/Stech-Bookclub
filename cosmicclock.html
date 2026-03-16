@@ -660,9 +660,14 @@
     setButtonState();
 
     handGroup.style.transitionDuration = `${TRANSITION_MS}ms`;
-    controlledWait(HOLD_MS, runToken).then(stillValid => {
-      if (stillValid && isPlaying) playSequence(runToken);
-    });
+
+    // Pause on Day 0 (Big Bang) before starting the first movement
+    async function startWithInitialPause(){
+      await controlledWait(HOLD_MS, runToken);
+      if (isPlaying) playSequence(runToken);
+    }
+
+    startWithInitialPause();
   </script>
 </body>
 </html>
