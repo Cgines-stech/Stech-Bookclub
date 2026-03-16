@@ -6,10 +6,11 @@
   <title>Cosmic Clock</title>
   <style>
     :root {
-      --bg1: #050816;
-      --bg2: #0b1433;
+      --bg1: #040814;
+      --bg2: #0b1636;
       --ring: #7dd3fc;
       --accent: #fbbf24;
+      --accent-2: #f97316;
       --text: #eef6ff;
       --muted: #a7bdd8;
       --card: rgba(9, 18, 43, 0.78);
@@ -27,9 +28,9 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15), transparent 20%),
-        radial-gradient(circle at 80% 30%, rgba(251, 191, 36, 0.12), transparent 20%),
-        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.12), transparent 18%),
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.14), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(251, 191, 36, 0.10), transparent 20%),
+        radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.10), transparent 18%),
         linear-gradient(180deg, var(--bg2), var(--bg1));
     }
 
@@ -86,13 +87,14 @@
     }
 
     .wrap {
-      width: min(94vw, 980px);
+      width: min(95vw, 1140px);
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 28px;
       align-items: center;
       position: relative;
       z-index: 1;
+      padding: 20px 0;
     }
 
     .panel {
@@ -104,7 +106,7 @@
     }
 
     .clock-panel {
-      padding: 24px;
+      padding: 20px;
       display: grid;
       place-items: center;
     }
@@ -128,10 +130,42 @@
     }
 
     .subtitle {
-      margin: 0 0 24px;
+      margin: 0 0 22px;
       color: var(--muted);
       line-height: 1.5;
       font-size: 1rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .primary-btn {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #111827;
+    }
+
+    .ghost-btn {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .event-name {
@@ -144,7 +178,7 @@
     .event-meta {
       display: grid;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .pill {
@@ -172,7 +206,7 @@
       border-top: 1px solid rgba(255,255,255,0.1);
       display: grid;
       gap: 10px;
-      max-height: 280px;
+      max-height: 300px;
       overflow: auto;
     }
 
@@ -196,7 +230,7 @@
     }
 
     svg {
-      width: min(82vw, 520px);
+      width: min(88vw, 620px);
       height: auto;
       display: block;
     }
@@ -214,7 +248,7 @@
     .hand {
       transform-box: fill-box;
       transform-origin: 50% 50%;
-      transition: transform 1.6s ease-in-out;
+      transition: transform 1s linear;
     }
 
     .hand-shadow {
@@ -228,13 +262,43 @@
       text-anchor: middle;
     }
 
+    .face-label {
+      font-size: 11px;
+      fill: rgba(255,255,255,0.86);
+      font-weight: 700;
+      text-anchor: middle;
+    }
+
+    .event-label {
+      font-size: 10px;
+      fill: rgba(255,255,255,0.88);
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    .status-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .status-chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
     .credit {
       margin-top: 18px;
       color: rgba(255,255,255,0.5);
       font-size: 0.86rem;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 940px) {
       .wrap {
         grid-template-columns: 1fr;
       }
@@ -254,7 +318,7 @@
 
   <main class="wrap">
     <section class="panel clock-panel">
-      <svg viewBox="0 0 600 600" aria-label="Cosmic Clock">
+      <svg viewBox="0 0 640 640" aria-label="Cosmic Clock">
         <defs>
           <radialGradient id="faceGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="rgba(255,255,255,0.14)" />
@@ -263,28 +327,34 @@
           </radialGradient>
         </defs>
 
-        <circle cx="300" cy="300" r="255" fill="url(#faceGlow)" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
-        <circle class="clock-face" cx="300" cy="300" r="220" fill="none" stroke="rgba(125,211,252,0.85)" stroke-width="10"></circle>
-        <circle cx="300" cy="300" r="185" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
+        <circle cx="320" cy="320" r="270" fill="url(#faceGlow)" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
+        <circle class="clock-face" cx="320" cy="320" r="230" fill="none" stroke="rgba(125,211,252,0.85)" stroke-width="10"></circle>
+        <circle cx="320" cy="320" r="196" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
 
         <g id="ticks"></g>
         <g id="labels"></g>
         <g id="eventMarkers"></g>
+        <g id="eventTexts"></g>
 
         <g class="hand hand-shadow" id="handGroup">
-          <line x1="300" y1="315" x2="300" y2="110" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"></line>
-          <polygon points="300,92 290,120 310,120" fill="#fbbf24"></polygon>
+          <line x1="320" y1="336" x2="320" y2="116" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"></line>
+          <polygon points="320,98 309,128 331,128" fill="#fbbf24"></polygon>
         </g>
 
-        <circle class="center-dot" cx="300" cy="300" r="11"></circle>
-        <text x="300" y="55" class="orbit-label">Cosmic Clock</text>
+        <circle class="center-dot" cx="320" cy="320" r="11"></circle>
+        <text x="320" y="58" class="orbit-label">Cosmic Clock</text>
       </svg>
     </section>
 
     <section class="panel info-panel">
       <div class="eyebrow">2 cosmic days</div>
       <h1>History of the Universe on a Clock</h1>
-      <p class="subtitle">The hand pauses for 4 seconds at each major event, then restarts from the beginning after the final stop.</p>
+      <p class="subtitle">The hand sweeps between milestones, pauses for 4 seconds at each one, waits 4 seconds at the end, and starts over automatically.</p>
+
+      <div class="controls">
+        <button id="toggleBtn" class="primary-btn">Pause</button>
+        <button id="restartBtn" class="ghost-btn">Restart</button>
+      </div>
 
       <h2 class="event-name" id="eventName">Loading…</h2>
 
@@ -297,9 +367,14 @@
         The clock begins with the Big Bang and travels through each cosmic milestone in sequence.
       </div>
 
+      <div class="status-row">
+        <div class="status-chip">Pause at each event: 4 seconds</div>
+        <div class="status-chip">Final pause before restart: 4 seconds</div>
+      </div>
+
       <div class="timeline" id="timeline"></div>
 
-      <div class="credit">Designed as a single-file page for easy GitHub Pages hosting.</div>
+      <div class="credit">Single-file page for easy GitHub Pages hosting.</div>
     </section>
   </main>
 
@@ -318,6 +393,7 @@
     ];
 
     const HOLD_MS = 4000;
+    const TRANSITION_MS = 2200;
 
     const eventNameEl = document.getElementById('eventName');
     const eventTimeEl = document.getElementById('eventTime');
@@ -328,6 +404,9 @@
     const ticksGroup = document.getElementById('ticks');
     const labelsGroup = document.getElementById('labels');
     const eventMarkersGroup = document.getElementById('eventMarkers');
+    const eventTextsGroup = document.getElementById('eventTexts');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const restartBtn = document.getElementById('restartBtn');
 
     const descriptions = {
       "Big Bang": "The universe begins at the very start of the 2-day cosmic clock.",
@@ -345,10 +424,8 @@
     function toSeconds(timeString) {
       const [time, modifier] = timeString.split(' ');
       let [hours, minutes, seconds] = time.split(':').map(Number);
-
       if (modifier === 'AM' && hours === 12) hours = 0;
       if (modifier === 'PM' && hours !== 12) hours += 12;
-
       return hours * 3600 + minutes * 60 + seconds;
     }
 
@@ -360,11 +437,43 @@
       absoluteSeconds: event.day * 86400 + toSeconds(event.time)
     }));
 
+    let currentIndex = 0;
+    let isPlaying = true;
+    let runToken = 0;
+    let remainingHold = HOLD_MS;
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function waitWhilePaused() {
+      return new Promise(resolve => {
+        const check = () => {
+          if (isPlaying) resolve();
+          else requestAnimationFrame(check);
+        };
+        check();
+      });
+    }
+
+    async function controlledWait(ms, token) {
+      let remaining = ms;
+      const step = 80;
+      while (remaining > 0) {
+        if (token !== runToken) return false;
+        if (!isPlaying) await waitWhilePaused();
+        const slice = Math.min(step, remaining);
+        await sleep(slice);
+        remaining -= slice;
+      }
+      return token === runToken;
+    }
+
     function formatDay(day) {
       return `Day ${day}`;
     }
 
-    function secondsToAngle(absoluteSeconds) {
+    function secondsToDegrees(absoluteSeconds) {
       return (absoluteSeconds / totalSeconds) * 720;
     }
 
@@ -373,13 +482,13 @@
     }
 
     function createTicks() {
-      const cx = 300;
-      const cy = 300;
+      const cx = 320;
+      const cy = 320;
       for (let i = 0; i < 48; i++) {
         const angle = (i / 48) * Math.PI * 2 - Math.PI / 2;
         const isMajor = i % 6 === 0;
-        const r1 = isMajor ? 206 : 213;
-        const r2 = 225;
+        const r1 = isMajor ? 214 : 221;
+        const r2 = 235;
         const x1 = cx + Math.cos(angle) * r1;
         const y1 = cy + Math.sin(angle) * r1;
         const x2 = cx + Math.cos(angle) * r2;
@@ -397,8 +506,8 @@
     }
 
     function createHourLabels() {
-      const cx = 300;
-      const cy = 300;
+      const cx = 320;
+      const cy = 320;
       const labels = [
         { text: '12 AM', pos: 0 },
         { text: '6 AM', pos: 6 },
@@ -412,35 +521,56 @@
 
       labels.forEach(label => {
         const angle = (label.pos / 48) * Math.PI * 2 - Math.PI / 2;
-        const r = 250;
+        const r = 260;
         const x = cx + Math.cos(angle) * r;
-        const y = cy + Math.sin(angle) * r + 6;
+        const y = cy + Math.sin(angle) * r + 4;
         const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         text.setAttribute('x', x);
         text.setAttribute('y', y);
-        text.setAttribute('fill', 'rgba(255,255,255,0.85)');
-        text.setAttribute('font-size', '18');
-        text.setAttribute('font-weight', '700');
-        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('class', 'face-label');
         text.textContent = label.text;
         labelsGroup.appendChild(text);
       });
     }
 
+    function shortenLabel(text) {
+      const replacements = {
+        'Single-celled Life Arrive': 'Life',
+        'Vertebrates Arrive': 'Vertebrates',
+        'Dinosaurs and Mammals Arrive': 'Dinos + Mammals',
+        'Entire Human History Starts after': 'Human History',
+        'Current Time': 'Now'
+      };
+      return replacements[text] || text;
+    }
+
     function createEventMarkers() {
-      const cx = 300;
-      const cy = 300;
-      mappedEvents.forEach(event => {
+      const cx = 320;
+      const cy = 320;
+
+      mappedEvents.forEach((event, idx) => {
         const angle = (event.absoluteSeconds / totalSeconds) * Math.PI * 2 - Math.PI / 2;
-        const x = cx + Math.cos(angle) * 185;
-        const y = cy + Math.sin(angle) * 185;
+
+        const x = cx + Math.cos(angle) * 196;
+        const y = cy + Math.sin(angle) * 196;
         const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         dot.setAttribute('cx', x);
         dot.setAttribute('cy', y);
         dot.setAttribute('r', event.name === 'Big Bang' || event.name === 'Current Time' ? '6' : '4');
         dot.setAttribute('fill', event.name === 'Current Time' ? '#fbbf24' : '#7dd3fc');
         dot.setAttribute('opacity', '0.95');
+        dot.setAttribute('data-index', idx);
         eventMarkersGroup.appendChild(dot);
+
+        const lr = idx % 2 === 0 ? 170 : 154;
+        const lx = cx + Math.cos(angle) * lr;
+        const ly = cy + Math.sin(angle) * lr + 4;
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', lx);
+        label.setAttribute('y', ly);
+        label.setAttribute('class', 'event-label');
+        label.textContent = shortenLabel(event.name);
+        eventTextsGroup.appendChild(label);
       });
     }
 
@@ -454,8 +584,9 @@
     }
 
     function setActiveEvent(index) {
+      currentIndex = index;
       const event = mappedEvents[index];
-      const angle = secondsToAngle(event.absoluteSeconds);
+      const angle = secondsToDegrees(event.absoluteSeconds);
 
       handGroup.style.transform = handRotation(angle);
       eventNameEl.textContent = event.name;
@@ -467,27 +598,83 @@
         item.classList.toggle('active', itemIndex === index);
       });
 
+      document.querySelectorAll('#eventMarkers circle').forEach((dot, dotIndex) => {
+        dot.setAttribute('stroke', dotIndex === index ? 'white' : 'none');
+        dot.setAttribute('stroke-width', dotIndex === index ? '2' : '0');
+      });
+
       const activeItem = document.querySelector(`.timeline-item[data-index="${index}"]`);
-      if (activeItem) {
-        activeItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      if (activeItem) activeItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+
+    function moveHandTo(index, durationMs) {
+      const event = mappedEvents[index];
+      handGroup.style.transitionDuration = `${durationMs}ms`;
+      handGroup.style.transform = handRotation(secondsToDegrees(event.absoluteSeconds));
+    }
+
+    function setButtonState() {
+      toggleBtn.textContent = isPlaying ? 'Pause' : 'Resume';
+    }
+
+    async function playSequence(token) {
+      setActiveEvent(currentIndex);
+
+      while (token === runToken) {
+        if (!isPlaying) {
+          await waitWhilePaused();
+          if (token !== runToken) return;
+        }
+
+        const nextIndex = currentIndex === mappedEvents.length - 1 ? 0 : currentIndex + 1;
+        const duration = currentIndex === mappedEvents.length - 1 ? TRANSITION_MS : TRANSITION_MS;
+
+        moveHandTo(nextIndex, duration);
+        const moved = await controlledWait(duration, token);
+        if (!moved) return;
+
+        setActiveEvent(nextIndex);
+
+        const held = await controlledWait(HOLD_MS, token);
+        if (!held) return;
       }
     }
 
-    async function playSequence() {
-      while (true) {
-        for (let i = 0; i < mappedEvents.length; i++) {
-          setActiveEvent(i);
-          await new Promise(resolve => setTimeout(resolve, HOLD_MS));
-        }
-      }
+    function restartSequence() {
+      runToken += 1;
+      currentIndex = 0;
+      handGroup.style.transitionDuration = '0ms';
+      setActiveEvent(0);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          handGroup.style.transitionDuration = `${TRANSITION_MS}ms`;
+          if (isPlaying) playSequence(runToken);
+        });
+      });
     }
+
+    toggleBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      setButtonState();
+    });
+
+    restartBtn.addEventListener('click', () => {
+      isPlaying = true;
+      setButtonState();
+      restartSequence();
+    });
 
     createTicks();
     createHourLabels();
     createEventMarkers();
     renderTimeline();
     setActiveEvent(0);
-    playSequence();
+    setButtonState();
+
+    handGroup.style.transitionDuration = `${TRANSITION_MS}ms`;
+    controlledWait(HOLD_MS, runToken).then(stillValid => {
+      if (stillValid && isPlaying) playSequence(runToken);
+    });
   </script>
 </body>
 </html>
