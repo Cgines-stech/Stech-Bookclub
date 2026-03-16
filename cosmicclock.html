@@ -16,9 +16,7 @@
       --card: rgba(9, 18, 43, 0.74);
       --glow: rgba(125, 211, 252, 0.42);
       --lap1: rgba(96,165,250,0.78);
-      --lap2: rgba(168,85,247,0.78);
-      --lap3: rgba(34,197,94,0.78);
-      --lap4: rgba(251,191,36,0.84);
+      --lap2: rgba(251,191,36,0.84);
     }
 
     * { box-sizing: border-box; }
@@ -337,9 +335,9 @@
   <main class="page">
     <section class="panel topbar">
       <div>
-        <div class="eyebrow">2 cosmic days · 4 clock rotations</div>
+        <div class="eyebrow">1 cosmic day · 2 clock rotations</div>
         <h1>History of the Universe on a Clock</h1>
-        <p class="subtitle">A normal 12-hour clock face represents the full 48-hour cosmic timeline. The hand makes 4 full rotations, pausing for 4 seconds at each event.</p>
+        <p class="subtitle">A normal 12-hour clock face represents the full 24-hour cosmic timeline. The hand makes 2 full rotations, pausing for 4 seconds at each event.</p>
       </div>
 
       <div class="controls">
@@ -361,20 +359,16 @@
 
           <circle cx="320" cy="320" r="270" fill="url(#faceGlow)" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
           <circle class="clock-face" cx="320" cy="320" r="230" fill="none" stroke="rgba(125,211,252,0.85)" stroke-width="10"></circle>
-          <circle cx="320" cy="320" r="188" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
+          <circle cx="320" cy="320" r="196" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"></circle>
 
           <g id="ticks"></g>
           <g id="labels"></g>
 
           <circle cx="320" cy="320" r="212" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="2" stroke-dasharray="4 7"></circle>
-          <circle cx="320" cy="320" r="204" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-dasharray="4 7"></circle>
-          <circle cx="320" cy="320" r="196" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="2" stroke-dasharray="4 7"></circle>
-          <circle cx="320" cy="320" r="188" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-dasharray="4 7"></circle>
+          <circle cx="320" cy="320" r="200" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-dasharray="4 7"></circle>
 
           <circle id="progressRing1" cx="320" cy="320" r="212" fill="none" stroke="var(--lap1)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1332" stroke-dashoffset="1332"></circle>
-          <circle id="progressRing2" cx="320" cy="320" r="204" fill="none" stroke="var(--lap2)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1282" stroke-dashoffset="1282"></circle>
-          <circle id="progressRing3" cx="320" cy="320" r="196" fill="none" stroke="var(--lap3)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1232" stroke-dashoffset="1232"></circle>
-          <circle id="progressRing4" cx="320" cy="320" r="188" fill="none" stroke="var(--lap4)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1181" stroke-dashoffset="1181"></circle>
+          <circle id="progressRing2" cx="320" cy="320" r="200" fill="none" stroke="var(--lap2)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1257" stroke-dashoffset="1257"></circle>
 
           <g id="eventMarkers"></g>
 
@@ -393,7 +387,7 @@
 
         <div class="event-meta">
           <div class="pill">🕒 <span id="eventTime">12:00:00 AM</span></div>
-          <div class="pill">📅 <span id="eventDay">Day 0</span></div>
+          <div class="pill">📅 <span id="eventDay">Day 1</span></div>
         </div>
 
         <div class="small" id="eventDescription">
@@ -402,9 +396,7 @@
 
         <div class="legend">
           <div class="legend-chip">Blue = rotation 1</div>
-          <div class="legend-chip">Purple = rotation 2</div>
-          <div class="legend-chip">Green = rotation 3</div>
-          <div class="legend-chip">Gold = rotation 4</div>
+          <div class="legend-chip">Gold = rotation 2</div>
         </div>
 
         <div class="timeline" id="timeline"></div>
@@ -436,7 +428,7 @@
 
   <script>
     const events = [
-      { name: "Big Bang", time: "12:00:00 AM", day: 0 },
+      { name: "Big Bang", time: "12:00:00 AM", day: 1 },
       { name: "Sun Born", time: "4:10:00 PM", day: 1 },
       { name: "Earth Born", time: "4:15:00 PM", day: 1 },
       { name: "Single-celled Life Arrive", time: "5:30:00 PM", day: 1 },
@@ -450,14 +442,12 @@
 
     const HOLD_MS = 4000;
     const TRANSITION_MS = 2200;
-    const TOTAL_SECONDS = 2 * 24 * 60 * 60;
+    const TOTAL_SECONDS = 24 * 60 * 60;
     const LAP_DEGREES = 360;
-    const TOTAL_DEGREES = 1440;
+    const TOTAL_DEGREES = 720;
     const ringData = [
       { id: 'progressRing1', radius: 212, circumference: 1332 },
-      { id: 'progressRing2', radius: 204, circumference: 1282 },
-      { id: 'progressRing3', radius: 196, circumference: 1232 },
-      { id: 'progressRing4', radius: 188, circumference: 1181 }
+      { id: 'progressRing2', radius: 200, circumference: 1257 }
     ];
 
     const eventNameEl = document.getElementById('eventName');
@@ -474,12 +464,12 @@
     const progressRings = ringData.map(ring => ({ ...ring, el: document.getElementById(ring.id) }));
 
     const descriptions = {
-      "Big Bang": "The universe begins at the very start of the 48-hour cosmic timeline.",
-      "Sun Born": "Our Sun appears during the third of four clock rotations.",
-      "Earth Born": "Earth forms shortly after the Sun on the same rotation.",
+      "Big Bang": "The universe begins at the very start of the 24-hour cosmic timeline.",
+      "Sun Born": "Our Sun appears during the second half of the cosmic day.",
+      "Earth Born": "Earth forms shortly after the Sun on the same day.",
       "Single-celled Life Arrive": "Early life appears and dominates most of the remaining timeline.",
       "Vertebrates Arrive": "Vertebrates arrive very late in the cosmic sequence.",
-      "Dinosaurs and Mammals Arrive": "Dinosaurs and mammals appear close to the end of the final rotation.",
+      "Dinosaurs and Mammals Arrive": "Dinosaurs and mammals appear close to the end of the day.",
       "T. rex Arrives": "T. rex appears in the closing moments of cosmic history.",
       "Astroid Hits": "A major asteroid impact follows shortly after T. rex appears.",
       "Entire Human History Starts after": "Recorded human history is only a tiny sliver at the very end.",
@@ -494,11 +484,14 @@
       return hours * 3600 + minutes * 60 + seconds;
     }
 
-    const mappedEvents = events.map((event, index) => ({
-      ...event,
-      index,
-      absoluteSeconds: event.day * 86400 + toSeconds(event.time)
-    }));
+    const mappedEvents = events.map((event, index) => {
+      const dayOffset = (event.day - 1) * 86400;
+      return {
+        ...event,
+        index,
+        absoluteSeconds: dayOffset + toSeconds(event.time)
+      };
+    });
 
     let currentIndex = 0;
     let isPlaying = true;
@@ -539,16 +532,12 @@
       return (absoluteSeconds / TOTAL_SECONDS) * TOTAL_DEGREES;
     }
 
-    function angleOnClock(totalDegrees) {
-      return ((totalDegrees % LAP_DEGREES) + LAP_DEGREES) % LAP_DEGREES;
-    }
-
     function handRotation(totalDegrees) {
       return `rotate(${totalDegrees}deg)`;
     }
 
-    function lapNumber(totalDegrees) {
-      return Math.min(4, Math.floor(totalDegrees / LAP_DEGREES) + 1);
+    function rotationNumber(totalDegrees) {
+      return Math.min(2, Math.floor(totalDegrees / LAP_DEGREES) + 1);
     }
 
     function setRingProgress(ring, turnsCompleted) {
@@ -560,8 +549,6 @@
       const turns = totalDegrees / LAP_DEGREES;
       setRingProgress(progressRings[0], turns);
       setRingProgress(progressRings[1], turns - 1);
-      setRingProgress(progressRings[2], turns - 2);
-      setRingProgress(progressRings[3], turns - 3);
     }
 
     function createTicks() {
@@ -626,9 +613,9 @@
 
       mappedEvents.forEach((event, idx) => {
         const totalDegrees = secondsToDegrees(event.absoluteSeconds);
-        const lapIndex = Math.min(progressRings.length - 1, Math.floor(totalDegrees / LAP_DEGREES));
-        const ring = progressRings[lapIndex];
-        const angle = (angleOnClock(totalDegrees) / 360) * Math.PI * 2 - Math.PI / 2;
+        const ringIndex = Math.min(progressRings.length - 1, Math.floor(totalDegrees / LAP_DEGREES));
+        const ring = progressRings[ringIndex];
+        const angle = ((totalDegrees % 360 + 360) % 360) / 360 * Math.PI * 2 - Math.PI / 2;
         const radius = ring.radius;
         const x = cx + Math.cos(angle) * radius;
         const y = cy + Math.sin(angle) * radius;
@@ -647,7 +634,7 @@
 
     function renderTimeline() {
       timeline.innerHTML = mappedEvents.map((event, index) => {
-        const rotation = lapNumber(secondsToDegrees(event.absoluteSeconds));
+        const rotation = rotationNumber(secondsToDegrees(event.absoluteSeconds));
         return `
           <div class="timeline-item ${index === 0 ? 'active' : ''}" data-index="${index}">
             <strong>${event.name}</strong>
@@ -661,7 +648,7 @@
       currentIndex = index;
       const event = mappedEvents[index];
       const totalDegrees = secondsToDegrees(event.absoluteSeconds);
-      const rotation = lapNumber(totalDegrees);
+      const rotation = rotationNumber(totalDegrees);
 
       handGroup.style.transform = handRotation(totalDegrees);
       updateProgressRings(totalDegrees);
