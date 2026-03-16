@@ -349,7 +349,7 @@
     <section class="panel info-panel">
       <div class="eyebrow">2 cosmic days</div>
       <h1>History of the Universe on a Clock</h1>
-      <p class="subtitle">The hand sweeps between milestones, pauses for 4 seconds at each one, waits 4 seconds at the end, and starts over automatically.</p>
+      <p class="subtitle">The hand sweeps between milestones, pauses for 8 seconds at each one, waits 8 seconds at the end, and starts over automatically.</p>
 
       <div class="controls">
         <button id="toggleBtn" class="primary-btn">Pause</button>
@@ -368,8 +368,8 @@
       </div>
 
       <div class="status-row">
-        <div class="status-chip">Pause at each event: 4 seconds</div>
-        <div class="status-chip">Final pause before restart: 4 seconds</div>
+        <div class="status-chip">Pause at each event: 8 seconds</div>
+        <div class="status-chip">Final pause before restart: 8 seconds</div>
       </div>
 
       <div class="timeline" id="timeline"></div>
@@ -392,7 +392,7 @@
       { name: "Current Time", time: "12:00:00 AM", day: 2 }
     ];
 
-    const HOLD_MS = 4000;
+    const HOLD_MS = 8000;
     const TRANSITION_MS = 2200;
 
     const eventNameEl = document.getElementById('eventName');
