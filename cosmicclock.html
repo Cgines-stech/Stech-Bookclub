@@ -361,6 +361,9 @@
 
           <g id="ticks"></g>
           <g id="labels"></g>
+          <!-- faint timeline orbit -->
+          <circle cx="320" cy="320" r="212" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 6"></circle>
+
           <g id="eventMarkers"></g>
 
           <g class="hand hand-shadow" id="handGroup">
@@ -551,15 +554,23 @@
 
       mappedEvents.forEach((event, idx) => {
         const angle = (event.absoluteSeconds / totalSeconds) * Math.PI * 2 - Math.PI / 2;
-        const x = cx + Math.cos(angle) * 196;
-        const y = cy + Math.sin(angle) * 196;
+
+        // Place markers slightly OUTSIDE the inner ring so they are visible
+        const radius = 212;
+        const x = cx + Math.cos(angle) * radius;
+        const y = cy + Math.sin(angle) * radius;
+
         const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         dot.setAttribute('cx', x);
         dot.setAttribute('cy', y);
-        dot.setAttribute('r', event.name === 'Big Bang' || event.name === 'Current Time' ? '6' : '4');
+        dot.setAttribute('r', event.name === 'Big Bang' || event.name === 'Current Time' ? '7' : '5');
         dot.setAttribute('fill', event.name === 'Current Time' ? '#fbbf24' : '#7dd3fc');
-        dot.setAttribute('opacity', '0.95');
+        dot.setAttribute('opacity', '1');
         dot.setAttribute('data-index', idx);
+
+        // ensure markers render above rings
+        dot.style.pointerEvents = 'none';
+
         eventMarkersGroup.appendChild(dot);
       });
     }
