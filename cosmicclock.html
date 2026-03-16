@@ -362,7 +362,11 @@
           <g id="ticks"></g>
           <g id="labels"></g>
           <!-- faint timeline orbit -->
+          <!-- faint timeline orbit -->
           <circle cx="320" cy="320" r="212" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="4 6"></circle>
+
+          <!-- progress trail -->
+          <circle id="progressRing" cx="320" cy="320" r="212" fill="none" stroke="rgba(251,191,36,0.7)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 320 320)" stroke-dasharray="1332" stroke-dashoffset="1332"></circle>
 
           <g id="eventMarkers"></g>
 
@@ -421,6 +425,7 @@
     const ticksGroup = document.getElementById('ticks');
     const labelsGroup = document.getElementById('labels');
     const eventMarkersGroup = document.getElementById('eventMarkers');
+    const progressRing = document.getElementById('progressRing');
     const toggleBtn = document.getElementById('toggleBtn');
     const restartBtn = document.getElementById('restartBtn');
 
@@ -590,6 +595,12 @@
       const angle = secondsToDegrees(event.absoluteSeconds);
 
       handGroup.style.transform = handRotation(angle);
+
+      // update glowing progress trail
+      const fraction = angle / 720;
+      const circumference = 1332;
+      const offset = circumference * (1 - fraction);
+      progressRing.style.strokeDashoffset = offset;
       eventNameEl.textContent = event.name;
       eventTimeEl.textContent = event.time;
       eventDayEl.textContent = formatDay(event.day);
